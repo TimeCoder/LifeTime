@@ -42,3 +42,6 @@ FORMS    += mainwindow.ui \
     infoui.ui
 
 OTHER_FILES +=
+
+RESOURCES += \
+    ui.qrc

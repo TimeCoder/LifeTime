@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Tue 9. Apr 23:59:19 2013
+** Created: Wed 10. Apr 02:35:19 2013
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -71,28 +71,28 @@ public:
         actionSettings = new QAction(MainWindow);
         actionSettings->setObjectName(QString::fromUtf8("actionSettings"));
         QIcon icon;
-        icon.addFile(QString::fromUtf8("res/settings.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8(":/new/prefix1/res/settings.ico"), QSize(), QIcon::Normal, QIcon::Off);
         actionSettings->setIcon(icon);
         actionRestart = new QAction(MainWindow);
         actionRestart->setObjectName(QString::fromUtf8("actionRestart"));
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8("res/restart.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QString::fromUtf8(":/new/prefix1/res/restart.ico"), QSize(), QIcon::Normal, QIcon::Off);
         actionRestart->setIcon(icon1);
         actionPlay = new QAction(MainWindow);
         actionPlay->setObjectName(QString::fromUtf8("actionPlay"));
         actionPlay->setEnabled(false);
         QIcon icon2;
-        icon2.addFile(QString::fromUtf8("res/play.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QString::fromUtf8(":/new/prefix1/res/play.ico"), QSize(), QIcon::Normal, QIcon::Off);
         actionPlay->setIcon(icon2);
         actionPause = new QAction(MainWindow);
         actionPause->setObjectName(QString::fromUtf8("actionPause"));
         QIcon icon3;
-        icon3.addFile(QString::fromUtf8("res/pause.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QString::fromUtf8(":/new/prefix1/res/pause.ico"), QSize(), QIcon::Normal, QIcon::Off);
         actionPause->setIcon(icon3);
         actionInfo = new QAction(MainWindow);
         actionInfo->setObjectName(QString::fromUtf8("actionInfo"));
         QIcon icon4;
-        icon4.addFile(QString::fromUtf8("res/help.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        icon4.addFile(QString::fromUtf8(":/new/prefix1/res/help.ico"), QSize(), QIcon::Normal, QIcon::Off);
         actionInfo->setIcon(icon4);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));

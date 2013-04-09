@@ -333,8 +333,8 @@
   </widget>
   <action name="actionSettings">
    <property name="icon">
-    <iconset>
-     <normaloff>res/settings.ico</normaloff>res/settings.ico</iconset>
+    <iconset resource="ui.qrc">
+     <normaloff>:/new/prefix1/res/settings.ico</normaloff>:/new/prefix1/res/settings.ico</iconset>
    </property>
    <property name="text">
     <string>Settings</string>
@@ -345,8 +345,8 @@
   </action>
   <action name="actionRestart">
    <property name="icon">
-    <iconset>
-     <normaloff>res/restart.ico</normaloff>res/restart.ico</iconset>
+    <iconset resource="ui.qrc">
+     <normaloff>:/new/prefix1/res/restart.ico</normaloff>:/new/prefix1/res/restart.ico</iconset>
    </property>
    <property name="text">
     <string>Restart</string>
@@ -360,8 +360,8 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset>
-     <normaloff>res/play.ico</normaloff>res/play.ico</iconset>
+    <iconset resource="ui.qrc">
+     <normaloff>:/new/prefix1/res/play.ico</normaloff>:/new/prefix1/res/play.ico</iconset>
    </property>
    <property name="text">
     <string>Play</string>
@@ -372,8 +372,8 @@
   </action>
   <action name="actionPause">
    <property name="icon">
-    <iconset>
-     <normaloff>res/pause.ico</normaloff>res/pause.ico</iconset>
+    <iconset resource="ui.qrc">
+     <normaloff>:/new/prefix1/res/pause.ico</normaloff>:/new/prefix1/res/pause.ico</iconset>
    </property>
    <property name="text">
     <string>Pause</string>
@@ -384,8 +384,8 @@
   </action>
   <action name="actionInfo">
    <property name="icon">
-    <iconset>
-     <normaloff>res/help.ico</normaloff>res/help.ico</iconset>
+    <iconset resource="ui.qrc">
+     <normaloff>:/new/prefix1/res/help.ico</normaloff>:/new/prefix1/res/help.ico</iconset>
    </property>
    <property name="text">
     <string>Info</string>
@@ -393,6 +393,8 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="ui.qrc"/>
+ </resources>
  <connections/>
 </ui>
