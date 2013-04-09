@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  World - клеточный 2-D мир
+//  World - cellular 2D world
 //
 //  Project: "LifeTime"  (life.timeacademy.ru)
-//  Autor: Zimaev Igor (i.zimaev@gmail.com)
+//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef WORLD_H
 #define WORLD_H
@@ -31,7 +31,7 @@ public:
     bool& cell(int row, int col) ;
     bool  cell(int row, int col) const;
 
-    // ѕолучить список из 8 соседей
+    // Get 8 neighborhood
     TCells nearest(int row, int col) const;
 
     void selectObject(int row, int col, TCells& object, bool begin=true) const;

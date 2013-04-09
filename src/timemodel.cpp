@@ -47,7 +47,7 @@ void TimeModel::next()
     int tMax = 0;
     int bSum = 0;
 
-    // Просчет параллельных потоков (среди них - и основной)
+    // Calc time flows
     for (int i=0; i<m_flows.size(); i++)
     {
         TimeFlow* flow = m_flows[i];
@@ -59,17 +59,17 @@ void TimeModel::next()
         bSum += flow->bMax();
     }
 
-    // Расчет диапазона древа
+    // Calc tree ranges
     m_bounds.tMax = tMax;
     m_bounds.bMax = bSum;
 
     //
-    // Расчеты рабочих данных
+    // Calc data for control panel
     //
     m_readings.worldFill = m_flows[m_curFlow]->life()->filling();
     m_readings.leapDifMax = m_flows[m_curFlow]->bMax();
 
-    // Достигли корня петли (отправной точки)
+    // End of loop?
     if (m_curTime >= m_readings.leapFrom && m_readings.leapFrom != 0)
     {
         if (m_readings.state == Readings::inLoop)
@@ -78,7 +78,7 @@ void TimeModel::next()
             m_readings.leapDifFade   = m_readings.leapDifRoot / m_readings.leapDifMax;
             m_readings.leapRootInvar = m_flows[m_curFlow]->life()->crossObject(m_object);
 
-            // TODO: вынести хардкод в настройки
+            // TODO: hardcode to settings
             if (m_readings.leapRootInvar > 0.99)
                 m_readings.leapType = 1;
             else

@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  TimeFlow - поток времени, содержащий историю мира и кривую реальности
+//  TimeFlow - flow of time, contains world's history and branch curve
 //
 //  Project: "LifeTime"  (life.timeacademy.ru)
-//  Autor: Zimaev Igor (i.zimaev@gmail.com)
+//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef FLOW_H
 #define FLOW_H
@@ -16,7 +16,7 @@ class TimeFlow
 {
 public:
 
-    // Точка в мультиверсуме, t - ось времени, b - ось альтернативных миров
+    // Point of multiversum, t - time axis, b - axis of alternate realities
     struct Point5D
     {
         enum  Kind { track, normal, leapIn, leapOut };
@@ -40,10 +40,10 @@ public:
 
     TimeFlow& operator =(const TimeFlow&);
 
-    // Шаг вычислений
+    // Calcs step
     void next();
 
-    // Добавить переход в прошлое
+    // Add tonnel in past
     void addLeap(int from, int to);
 
     const TBranch& branch() const;
@@ -56,11 +56,11 @@ public:
     int b(int t) const;
 
 private:
-    // Родительский поток времени
+    // Parent flow
     const TimeFlow* m_parent;
     int m_birthday;
 
-    // Копия истории
+    // Copy of history
     QVector<World*> m_past;
     //
     LifeModel*      m_life;
@@ -69,7 +69,7 @@ private:
     TBranch         m_branch;
     int             m_bMax;
 
-    // Количественная разность миров
+    // The quantitative difference between the worlds
     static float worldDif(const World& world1, const World& world2);
 };
 

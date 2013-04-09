@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  Settings - глобальные настройки приложения
+//  Settings - app global settings
 //
 //  Project: "LifeTime"  (life.timeacademy.ru)
-//  Autor: Zimaev Igor (i.zimaev@gmail.com)
+//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef SETTINGS_H
 #define SETTINGS_H

@@ -12,7 +12,7 @@ TimeFlow::TimeFlow()
 
 TimeFlow::TimeFlow(int rows, int cols, int count)
 {
-    // «апуск потока с нул€
+    // Start of root flow
     m_parent = NULL;
     m_birthday = 0;
     m_life = new LifeModel();
@@ -24,7 +24,7 @@ TimeFlow::TimeFlow(int rows, int cols, int count)
 TimeFlow::TimeFlow(const TimeFlow* parent, World::TCells* object, int birthday)
     : m_parent(parent), m_birthday(birthday)
 {
-    // «апуск потока, как ответвление от родительского
+    // Start of child flow
 
     m_life = new LifeModel();
     m_past = parent->m_past.mid(0, birthday);
@@ -75,15 +75,15 @@ TimeFlow& TimeFlow::operator =(const TimeFlow& rhs)
 
 void TimeFlow::next()
 {
-    // —начала рассчитали следующий "кадр" мира
+    // First, calc next world "frame"
     m_past << new World(m_life->next());
 
-    // —читаем его 5D-координаты
+    // Second, calc his 5D coords
     int t = m_past.size()-1;
     int b = m_parent ?
                 (worldDif(world(t), m_parent->world(t))) : 0;
 
-    //   разнице относительно родител€, прибавл€ем b-координату самого родител€
+    // Dif between flow and its parent, and b-coord parent
     b += m_parent ? m_parent->b(t) : 0;
 
     if (m_bMax < b)

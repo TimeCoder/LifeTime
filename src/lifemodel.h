@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  LifeModel - расчет жизни мира по классическому алгоритму Конвея
+//  LifeModel - world's life calculation, implementation of Conway algorythm
 //
 //  Project: "LifeTime"  (life.timeacademy.ru)
-//  Autor: Zimaev Igor (i.zimaev@gmail.com)
+//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef LIFEMODEL_H
 #define LIFEMODEL_H
@@ -16,18 +16,18 @@ public:
     LifeModel();
     ~LifeModel();
 
-    // 1-й способ запуска жизни: с нуля
+    // 1st way of life start: random
     void  start(int rows, int cols, int count);
-    // 2-й способ запуска жизни: мир дан
+    // 2nd way of life start: exist world
     void setWorld(const World& world);
 
-    // Расчет следующего "кадра" жизни
+    // Next life frame
     const World& next();
 
-    // Коэффициент заполненности мира
+    // world filling coef.
     float filling() const;
 
-    // Коэффициент пересечения объекта с миром
+    // world and object intercross coef.
     float crossObject(const World::TCells&) const;
 
 private:

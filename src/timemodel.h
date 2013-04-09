@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  TimeModel - мультиверсум, содержащий все потоки времени
+//  TimeModel - multiversum, contains all time flows (time tree)
 //
 //  Project: "LifeTime"  (life.timeacademy.ru)
-//  Autor: Zimaev Igor (i.zimaev@gmail.com)
+//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef TIMEMODEL_H
 #define TIMEMODEL_H
@@ -28,14 +28,12 @@ public:
 
     TimeModel();
 
-    // Рождение мира
+    // Begin of space and time
     void bigBan(int rows, int cols, int count);
-    // Следующий шаг мира
+    // Next step of evolution
     void next();
 
-    // Просмотр прошлого
     void showPast(int destTime);
-    // Перемещение в прошлое
     void gotoPast(int destTime);
 
     int curTime() const;

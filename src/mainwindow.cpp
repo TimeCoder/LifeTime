@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     m_lifeView  = new LifeView(this);
 
     //
-    // Настройка UI
+    // setup UI
     //
     ui->setupUi(this);
     ui->verticalLayout_1->addWidget(m_timeView);
@@ -32,13 +32,13 @@ MainWindow::MainWindow(QWidget *parent) :
     m_readingsUI.init(ui->treeWidget);
 
     //
-    // Таймер
+    // Setup timer
     //
     m_timer = new QTimer(this);
     connect(m_timer, SIGNAL(timeout()), this, SLOT(on_render()));
 
     //
-    // Связь модели и представления
+    // bind models and views
     //
     connect(m_timeModel, SIGNAL(worldChangeEvent(const World&, const World::TCells&, Readings::eStates)),
             m_lifeView,  SLOT(on_changeWorld(const World&, const World::TCells&, Readings::eStates)) );
@@ -55,7 +55,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(m_lifeView,  SIGNAL(chooseObjectEvent(int, int)),
             m_timeModel, SLOT(on_chooseObject(int, int)) );
 
-    // Запуск
+    // run
     start();
 }
 
@@ -181,7 +181,7 @@ void MainWindow::on_updateReadings(const Readings& readings)
 
 void MainWindow::on_loopEnd()
 {
-    // Не даем второй раз путешествовать
+    // only one travel in the past!
     m_tmBlocked = true;
     on_actionPause_triggered();
 }

@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  LifeView - визуальное отображение мира (используя OpenGL)
+//  LifeView - view of world (use OpenGL)
 //
 //  Project: "LifeTime"  (life.timeacademy.ru)
-//  Autor: Zimaev Igor (i.zimaev@gmail.com)
+//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 
 #ifndef LIFEVIEW_H
@@ -19,7 +19,7 @@ class LifeView : public QGLWidget
 public:
     explicit LifeView(QWidget* parent);
 
-    // Заморозить выбор объекта
+    // Freeze object choose
     void fixObject(bool fix);
 
 public slots:

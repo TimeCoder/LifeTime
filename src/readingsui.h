@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  ReadingsUI - визуальное представление рабочих данных от МВ
+//  ReadingsUI - view of time machine data
 //
 //  Project: "LifeTime"  (life.timeacademy.ru)
-//  Autor: Zimaev Igor (i.zimaev@gmail.com)
+//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef READINGSUI_H
 #define READINGSUI_H

@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  SettingsUI - визуальное представление глобальных настроек приложения
+//  SettingsUI - view of global app settings
 //
 //  Project: "LifeTime"  (life.timeacademy.ru)
-//  Autor: Zimaev Igor (i.zimaev@gmail.com)
+//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef SETTINGSUI_H
 #define SETTINGSUI_H

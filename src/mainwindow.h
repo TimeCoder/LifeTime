@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  MainWindow - основное окно приложения
+//  MainWindow - main app window
 //
 //  Project: "LifeTime"  (life.timeacademy.ru)
-//  Autor: Zimaev Igor (i.zimaev@gmail.com)
+//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H

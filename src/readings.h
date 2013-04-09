@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  Readings - рабочие данные, выдываемые машиной времени
+//  Readings - data of time machine
 //
 //  Project: "LifeTime"  (life.timeacademy.ru)
-//  Autor: Zimaev Igor (i.zimaev@gmail.com)
+//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef READINGS_H
 #define READINGS_H
@@ -16,12 +16,12 @@ struct Readings
     int objectSizeAbs;
     float objectSizeRel;
 
-    // Состояние МВ
+    // TM state
     enum eStates
     {
-        showPast, // выбор момента
-        inLoop,   // в петле времени
-        afterLoop // петля пройдена
+        showPast,
+        inLoop,
+        afterLoop
     };
 
     eStates state;
@@ -30,15 +30,15 @@ struct Readings
     int leapTo;
     int leapDistance;
 
-    // Максимальное отклонение реальности
+    // Reality max dif
     float leapDifMax;
-    // Отклонение реальности в корне петли
+    // Reality dif at loop end
     float leapDifRoot;
-    // Коэффициент затухания отклонения (0 - полное затухание)
+    // Fade of reality dif (0 - total fade)
     float leapDifFade;
-    // Коэффициент стабильности объекта после перемещения
+    // Invar of object after leap
     float leapRootInvar;
-    // Степень влияния на историю
+    // Degree of history change
     int   leapType;
 
     Readings();

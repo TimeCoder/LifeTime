@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  TimeView - визуальное отображение древа ¬ремени (использу€ OpenGL)
+//  TimeView - view of time tree (use OpenGL)
 //
 //  Project: "LifeTime"  (life.timeacademy.ru)
-//  Autor: Zimaev Igor (i.zimaev@gmail.com)
+//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef TIMEVIEW_H
 #define TIMEVIEW_H

@@ -54,13 +54,11 @@ const World& LifeModel::next()
                 if (m_worldPrev->cell(c.first, c.second)) lifeAround++;
             }
 
-            //в пустой клетке, рядом с которой ровно три живые клетки, зарождается жизнь;
+            // empty cell, near 3 life - born life
             if (!m_worldPrev->cell(row, col) && lifeAround == 3)
                  m_worldCur->cell(row, col) = true;
             else
-            //если у живой клетки есть две или три живые соседки, то эта клетка продолжает жить;
-            //в противном случае (если соседей меньше двух или больше трёх) клетка умирает
-            //(«от одиночества» или «от перенаселённости»).
+            // dead of cell, if near less 2 or over 3 life
             if (m_worldPrev->cell(row, col) && (lifeAround < 2 || lifeAround > 3))
                 m_worldCur->cell(row, col) = false;
             else
