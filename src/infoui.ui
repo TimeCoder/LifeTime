@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InfoUI</class>
+ <widget class="QDialog" name="InfoUI">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>468</width>
+    <height>215</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Help and About</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>461</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>LifeTime - it is a model of the time travels based on Conway's Life algorythm. Here you can see how the past responds to intervention (grandfather paradox).
+
+How it works?
+1. Switch on virtual time machine.
+2. Choose the object to move it in the timeline (mouse left click on any object of world).
+3. Choose the destination point in the past (use slider).
+4. Send the object into the past (push &quot;Leap&quot;).
+5. See the alternative reality, its deviation, and final of time loop.
+
+Project homepage: life.timeacademy.ru
+Questions, comments and suggestions: i.zimaev@timeacademy.ru</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::AutoText</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>180</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>OK</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
