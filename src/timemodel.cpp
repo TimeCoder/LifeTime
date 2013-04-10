@@ -44,8 +44,8 @@ void TimeModel::next()
 {
     m_curTime++;
 
-    int tMax = 0;
-    int bSum = 0;
+    int   tMax = 0;
+    float bSum = 0;
 
     // Calc time flows
     for (int i=0; i<m_flows.size(); i++)
@@ -66,7 +66,7 @@ void TimeModel::next()
     //
     // Calc data for control panel
     //
-    m_readings.worldFill = m_flows[m_curFlow]->life()->filling();
+    m_readings.worldFill  = m_flows[m_curFlow]->life()->filling();
     m_readings.leapDifMax = m_flows[m_curFlow]->bMax();
 
     // End of loop?
@@ -79,10 +79,10 @@ void TimeModel::next()
             m_readings.leapRootInvar = m_flows[m_curFlow]->life()->crossObject(m_object);
 
             // TODO: hardcode to settings
-            if (m_readings.leapRootInvar > 0.99)
+            if (m_readings.leapRootInvar > 0.99f)
                 m_readings.leapType = 1;
             else
-            if (m_readings.leapRootInvar > 0.50)
+            if (m_readings.leapRootInvar > 0.50f)
                 m_readings.leapType = 2;
             else
                 m_readings.leapType = 3;
@@ -117,8 +117,8 @@ void TimeModel::showPast(int destTime)
     emit worldChangeEvent(m_flows[m_curFlow]->world(destTime), m_object, m_readings.state);
 
     m_readings.worldFill = m_flows[m_curFlow]->filling(destTime);
-    m_readings.leapFrom = m_curTime;
-    m_readings.leapTo = destTime;
+    m_readings.leapFrom  = m_curTime;
+    m_readings.leapTo    = destTime;
     m_readings.leapDistance = m_curTime - destTime;
     emit updateReadingsEvent(m_readings);
 }
@@ -127,8 +127,8 @@ void TimeModel::showPast(int destTime)
 void TimeModel::gotoPast(int destTime)
 {
     m_readings.state = Readings::inLoop;
-    m_readings.leapDifMax = 0;
-    m_readings.leapDifRoot = 0;
+    m_readings.leapDifMax  = 0.f;
+    m_readings.leapDifRoot = 0.f;
     emit updateReadingsEvent(m_readings);
 
     m_flows[m_curFlow]->addLeap(m_curTime, destTime);

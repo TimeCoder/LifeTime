@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'settingsui.ui'
 **
-** Created: Tue 9. Apr 00:07:34 2013
+** Created: Wed 10. Apr 22:30:07 2013
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -64,15 +64,16 @@ public:
         spinDesiredFPS = new QSpinBox(SettingsUI);
         spinDesiredFPS->setObjectName(QString::fromUtf8("spinDesiredFPS"));
         spinDesiredFPS->setGeometry(QRect(90, 50, 71, 22));
-        spinDesiredFPS->setMinimum(5);
-        spinDesiredFPS->setMaximum(1000);
-        spinDesiredFPS->setSingleStep(5);
+        spinDesiredFPS->setMinimum(10);
+        spinDesiredFPS->setMaximum(100);
+        spinDesiredFPS->setSingleStep(10);
         spinInitFilling = new QSpinBox(SettingsUI);
         spinInitFilling->setObjectName(QString::fromUtf8("spinInitFilling"));
         spinInitFilling->setGeometry(QRect(90, 90, 71, 22));
-        spinInitFilling->setMinimum(50);
-        spinInitFilling->setMaximum(1000);
-        spinInitFilling->setSingleStep(50);
+        spinInitFilling->setMinimum(10);
+        spinInitFilling->setMaximum(100);
+        spinInitFilling->setSingleStep(10);
+        spinInitFilling->setValue(30);
         label_4 = new QLabel(SettingsUI);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(14, 93, 71, 16));

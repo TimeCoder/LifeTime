@@ -21,11 +21,11 @@ public:
     {
         enum  Kind { track, normal, leapIn, leapOut };
 
-        int  t;
-        int  b;
+        int    t;
+        float  b;
         Kind k;
         Point5D(){}
-        Point5D(int time, int branch, Kind kind = normal)
+        Point5D(int time, float branch, Kind kind = normal)
             : t(time), b(branch), k(kind)
         {
         }
@@ -51,9 +51,9 @@ public:
     const LifeModel* life() const;
 
     int tMax() const;
-    int bMax() const;
+    float bMax() const;
 
-    int b(int t) const;
+    float b(int t) const;
     float filling(int t) const;
 
 private:
@@ -72,7 +72,7 @@ private:
 
     //
     TBranch         m_branch;
-    int             m_bMax;
+    float           m_bMax;
 
 private:
     // The quantitative difference between the worlds

@@ -6,7 +6,7 @@ TimeFlow::TimeFlow()
     m_parent = NULL;
     m_birthday = 0;
     m_life = NULL;
-    m_bMax = 0;
+    m_bMax = 0.f;
 }
 
 
@@ -17,7 +17,7 @@ TimeFlow::TimeFlow(int rows, int cols, int count)
     m_birthday = 0;
     m_life = new LifeModel();
     m_life->start(rows, cols, count);
-    m_bMax = 0;
+    m_bMax = 0.f;
 }
 
 
@@ -25,7 +25,6 @@ TimeFlow::TimeFlow(const TimeFlow* parent, World::TCells* object, int birthday)
     : m_parent(parent), m_birthday(birthday)
 {
     // Start of child flow
-
     m_life = new LifeModel();
     m_past = parent->m_past.mid(0, birthday);
     m_fillings = parent->m_fillings.mid(0, birthday);
@@ -84,7 +83,7 @@ void TimeFlow::next()
 
     // Second, calc his 5D coords
     int t = m_past.size()-1;
-    int b = m_parent ?
+    float b = m_parent ?
         (worldDif(world(t), m_parent->world(t))) : 0;
 
     // Dif between flow and its parent, and b-coord parent
@@ -97,7 +96,7 @@ void TimeFlow::next()
 }
 
 
-int TimeFlow::b(int t) const
+float TimeFlow::b(int t) const
 {
     if (t > m_birthday) return m_branch[t - m_birthday].b;
     return m_parent->b(t);
@@ -136,7 +135,7 @@ int TimeFlow::tMax() const
 }
 
 
-int TimeFlow::bMax() const
+float TimeFlow::bMax() const
 {
     return m_bMax;
 }
@@ -151,8 +150,10 @@ void TimeFlow::addLeap(int from, int to)
 
 float TimeFlow::worldDif(const World& world1, const World& world2)
 {
-    //TODO: asserts on equal size
-    int dif = 0;
+    Q_ASSERT(world1.rows() == world2.rows());
+    Q_ASSERT(world1.cols() == world2.cols());
+
+    float dif = 0;
 
     for (int row=0; row<world1.rows(); ++row)
     {
@@ -162,5 +163,5 @@ float TimeFlow::worldDif(const World& world1, const World& world2)
         }
     }
 
-    return dif;
+    return dif / (world1.rows() *  world1.cols());
 }
