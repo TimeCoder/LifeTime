@@ -54,6 +54,7 @@ public:
     int bMax() const;
 
     int b(int t) const;
+    float filling(int t) const;
 
 private:
     // Parent flow
@@ -62,6 +63,10 @@ private:
 
     // Copy of history
     QVector<World*> m_past;
+
+    // FIXME: parallel arrays is bad
+    QVector<float>  m_fillings;
+
     //
     LifeModel*      m_life;
 
@@ -69,6 +74,7 @@ private:
     TBranch         m_branch;
     int             m_bMax;
 
+private:
     // The quantitative difference between the worlds
     static float worldDif(const World& world1, const World& world2);
 };

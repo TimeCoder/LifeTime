@@ -28,6 +28,7 @@ TimeFlow::TimeFlow(const TimeFlow* parent, World::TCells* object, int birthday)
 
     m_life = new LifeModel();
     m_past = parent->m_past.mid(0, birthday);
+    m_fillings = parent->m_fillings.mid(0, birthday);
     m_bMax = 0.f;
 
     World* w = m_past.last();
@@ -46,6 +47,7 @@ TimeFlow::TimeFlow(const TimeFlow& rhs)
     : m_parent(rhs.m_parent),
       m_birthday(rhs.m_birthday),
       m_past(rhs.m_past),
+      m_fillings(rhs.m_fillings),
       m_life(rhs.m_life),
       m_branch(rhs.m_branch),
       m_bMax(rhs.m_bMax)
@@ -65,6 +67,7 @@ TimeFlow& TimeFlow::operator =(const TimeFlow& rhs)
     m_parent = rhs.m_parent;
     m_birthday = rhs.m_birthday;
     m_past = rhs.m_past;
+    m_fillings = rhs.m_fillings;
     m_life = rhs.m_life;
     m_branch = rhs.m_branch;
     m_bMax = rhs.m_bMax;
@@ -76,12 +79,13 @@ TimeFlow& TimeFlow::operator =(const TimeFlow& rhs)
 void TimeFlow::next()
 {
     // First, calc next world "frame"
-    m_past << new World(m_life->next());
+    m_past      << new World(m_life->next());
+    m_fillings  << m_life->filling();
 
     // Second, calc his 5D coords
     int t = m_past.size()-1;
     int b = m_parent ?
-                (worldDif(world(t), m_parent->world(t))) : 0;
+        (worldDif(world(t), m_parent->world(t))) : 0;
 
     // Dif between flow and its parent, and b-coord parent
     b += m_parent ? m_parent->b(t) : 0;
@@ -97,6 +101,13 @@ int TimeFlow::b(int t) const
 {
     if (t > m_birthday) return m_branch[t - m_birthday].b;
     return m_parent->b(t);
+}
+
+
+float TimeFlow::filling(int t) const
+{
+    Q_ASSERT(t >=0 && t < m_fillings.size());
+    return m_fillings[t];
 }
 
 

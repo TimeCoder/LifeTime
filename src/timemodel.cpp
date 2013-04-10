@@ -115,6 +115,12 @@ void TimeModel::showPast(int destTime)
 {
     m_readings.state = Readings::showPast;
     emit worldChangeEvent(m_flows[m_curFlow]->world(destTime), m_object, m_readings.state);
+
+    m_readings.worldFill = m_flows[m_curFlow]->filling(destTime);
+    m_readings.leapFrom = m_curTime;
+    m_readings.leapTo = destTime;
+    m_readings.leapDistance = m_curTime - destTime;
+    emit updateReadingsEvent(m_readings);
 }
 
 
@@ -123,9 +129,6 @@ void TimeModel::gotoPast(int destTime)
     m_readings.state = Readings::inLoop;
     m_readings.leapDifMax = 0;
     m_readings.leapDifRoot = 0;
-    m_readings.leapFrom = m_curTime;
-    m_readings.leapTo = destTime;
-    m_readings.leapDistance = m_curTime - destTime;
     emit updateReadingsEvent(m_readings);
 
     m_flows[m_curFlow]->addLeap(m_curTime, destTime);

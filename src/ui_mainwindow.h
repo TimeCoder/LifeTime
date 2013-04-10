@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed 10. Apr 02:35:19 2013
+** Created: Wed 10. Apr 02:41:42 2013
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -126,14 +126,14 @@ public:
         btnLeap->setEnabled(false);
         btnLeap->setGeometry(QRect(616, 100, 161, 40));
         QIcon icon5;
-        icon5.addFile(QString::fromUtf8("res/jump.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        icon5.addFile(QString::fromUtf8(":/new/prefix1/res/jump.ico"), QSize(), QIcon::Normal, QIcon::Off);
         btnLeap->setIcon(icon5);
         btnOn = new QCommandLinkButton(groupBox_2);
         btnOn->setObjectName(QString::fromUtf8("btnOn"));
         btnOn->setEnabled(true);
         btnOn->setGeometry(QRect(616, 10, 161, 40));
         QIcon icon6;
-        icon6.addFile(QString::fromUtf8("res/on.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        icon6.addFile(QString::fromUtf8(":/new/prefix1/res/on.ico"), QSize(), QIcon::Normal, QIcon::Off);
         btnOn->setIcon(icon6);
         btnOn->setIconSize(QSize(20, 20));
         lcd2 = new QLCDNumber(groupBox_2);

@@ -120,8 +120,8 @@
       <string>Leap</string>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>res/jump.ico</normaloff>res/jump.ico</iconset>
+      <iconset resource="ui.qrc">
+       <normaloff>:/new/prefix1/res/jump.ico</normaloff>:/new/prefix1/res/jump.ico</iconset>
      </property>
     </widget>
     <widget class="QCommandLinkButton" name="btnOn">
@@ -140,8 +140,8 @@
       <string>Power</string>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>res/on.ico</normaloff>res/on.ico</iconset>
+      <iconset resource="ui.qrc">
+       <normaloff>:/new/prefix1/res/on.ico</normaloff>:/new/prefix1/res/on.ico</iconset>
      </property>
      <property name="iconSize">
       <size>
