@@ -25,12 +25,6 @@
     <height>600</height>
    </size>
   </property>
-  <property name="maximumSize">
-   <size>
-    <width>800</width>
-    <height>600</height>
-   </size>
-  </property>
   <property name="windowTitle">
    <string>LifeTime 1.0</string>
   </property>
@@ -41,277 +35,321 @@
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QGroupBox" name="groupBox_2">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>3</y>
-      <width>781</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>200</width>
-      <height>50</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>16777215</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="title">
-     <string>Time Machine</string>
-    </property>
-    <widget class="QSlider" name="sliderTime">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>51</y>
-       <width>581</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimum">
-      <number>1</number>
-     </property>
-     <property name="value">
-      <number>99</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="QWidget" name="verticalLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>80</y>
-       <width>581</width>
-       <height>91</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_1"/>
-    </widget>
-    <widget class="QCommandLinkButton" name="btnLeap">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>616</x>
-       <y>100</y>
-       <width>161</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Leap</string>
-     </property>
-     <property name="icon">
-      <iconset resource="ui.qrc">
-       <normaloff>:/new/prefix1/res/jump.ico</normaloff>:/new/prefix1/res/jump.ico</iconset>
-     </property>
-    </widget>
-    <widget class="QCommandLinkButton" name="btnOn">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>616</x>
-       <y>10</y>
-       <width>161</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Power</string>
-     </property>
-     <property name="icon">
-      <iconset resource="ui.qrc">
-       <normaloff>:/new/prefix1/res/on.ico</normaloff>:/new/prefix1/res/on.ico</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-    </widget>
-    <widget class="QLCDNumber" name="lcd2">
-     <property name="geometry">
-      <rect>
-       <x>530</x>
-       <y>16</y>
-       <width>64</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
-     </property>
-     <property name="segmentStyle">
-      <enum>QLCDNumber::Flat</enum>
-     </property>
-    </widget>
-    <widget class="QLCDNumber" name="lcd0">
-     <property name="geometry">
-      <rect>
-       <x>-40</x>
-       <y>16</y>
-       <width>64</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="layoutDirection">
-      <enum>Qt::RightToLeft</enum>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
-     </property>
-     <property name="segmentStyle">
-      <enum>QLCDNumber::Flat</enum>
-     </property>
-    </widget>
-    <widget class="QLCDNumber" name="lcd1">
-     <property name="geometry">
-      <rect>
-       <x>250</x>
-       <y>16</y>
-       <width>64</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="palette">
-      <palette>
-       <active>
-        <colorrole role="WindowText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>106</blue>
-          </color>
-         </brush>
-        </colorrole>
-       </active>
-       <inactive>
-        <colorrole role="WindowText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>0</red>
-           <green>0</green>
-           <blue>106</blue>
-          </color>
-         </brush>
-        </colorrole>
-       </inactive>
-       <disabled>
-        <colorrole role="WindowText">
-         <brush brushstyle="SolidPattern">
-          <color alpha="255">
-           <red>120</red>
-           <green>120</green>
-           <blue>120</blue>
-          </color>
-         </brush>
-        </colorrole>
-       </disabled>
-      </palette>
-     </property>
-     <property name="font">
-      <font>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
-     </property>
-     <property name="segmentStyle">
-      <enum>QLCDNumber::Flat</enum>
-     </property>
-    </widget>
-    <widget class="QLabel" name="labelChooseObject">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>650</x>
-       <y>47</y>
-       <width>91</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>- choose object</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="labelChooseDate">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>650</x>
-       <y>63</y>
-       <width>91</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>- choose time</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>200</y>
-      <width>581</width>
-      <height>351</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2"/>
-   </widget>
-   <widget class="QTreeWidget" name="treeWidget">
-    <property name="geometry">
-     <rect>
-      <x>610</x>
-      <y>200</y>
-      <width>181</width>
-      <height>351</height>
-     </rect>
-    </property>
-    <attribute name="headerVisible">
-     <bool>false</bool>
-    </attribute>
-    <column>
-     <property name="text">
-      <string notr="true">1</string>
-     </property>
-    </column>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLCDNumber" name="lcd0">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>30</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="digitCount">
+           <number>1</number>
+          </property>
+          <property name="segmentStyle">
+           <enum>QLCDNumber::Flat</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLCDNumber" name="lcd1">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="palette">
+           <palette>
+            <active>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>0</red>
+                <green>0</green>
+                <blue>106</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </active>
+            <inactive>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>0</red>
+                <green>0</green>
+                <blue>106</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </inactive>
+            <disabled>
+             <colorrole role="WindowText">
+              <brush brushstyle="SolidPattern">
+               <color alpha="255">
+                <red>120</red>
+                <green>120</green>
+                <blue>120</blue>
+               </color>
+              </brush>
+             </colorrole>
+            </disabled>
+           </palette>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="digitCount">
+           <number>5</number>
+          </property>
+          <property name="segmentStyle">
+           <enum>QLCDNumber::Flat</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLCDNumber" name="lcd2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="digitCount">
+           <number>5</number>
+          </property>
+          <property name="segmentStyle">
+           <enum>QLCDNumber::Flat</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QSlider" name="sliderTime">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>99</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_1"/>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="1">
+     <widget class="QGroupBox" name="groupBox">
+      <property name="minimumSize">
+       <size>
+        <width>180</width>
+        <height>150</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>150</height>
+       </size>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QCommandLinkButton" name="btnLeap">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>161</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Leap</string>
+       </property>
+       <property name="icon">
+        <iconset resource="ui.qrc">
+         <normaloff>:/new/prefix1/res/jump.ico</normaloff>:/new/prefix1/res/jump.ico</iconset>
+       </property>
+      </widget>
+      <widget class="QCommandLinkButton" name="btnOn">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>161</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Power</string>
+       </property>
+       <property name="icon">
+        <iconset resource="ui.qrc">
+         <normaloff>:/new/prefix1/res/on.ico</normaloff>:/new/prefix1/res/on.ico</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelChooseObject">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>44</x>
+         <y>47</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>- choose object</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelChooseDate">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>44</x>
+         <y>63</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>- choose time</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Expanding</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="1">
+     <widget class="QTreeWidget" name="treeWidget">
+      <property name="minimumSize">
+       <size>
+        <width>180</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>180</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <attribute name="headerVisible">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string notr="true">1</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+   </layout>
+   <zorder>verticalLayoutWidget_2</zorder>
+   <zorder>treeWidget</zorder>
+   <zorder>btnLeap</zorder>
+   <zorder>btnOn</zorder>
+   <zorder>labelChooseObject</zorder>
+   <zorder>labelChooseDate</zorder>
+   <zorder>groupBox</zorder>
+   <zorder>verticalLayoutWidget_3</zorder>
   </widget>
   <widget class="QToolBar" name="toolBar">
    <property name="windowTitle">

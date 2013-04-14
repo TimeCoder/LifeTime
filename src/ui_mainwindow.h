@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed 10. Apr 02:41:42 2013
+** Created: Mon 15. Apr 01:18:44 2013
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -15,12 +15,15 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QCommandLinkButton>
+#include <QtGui/QGridLayout>
 #include <QtGui/QGroupBox>
+#include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLCDNumber>
 #include <QtGui/QLabel>
 #include <QtGui/QMainWindow>
 #include <QtGui/QSlider>
+#include <QtGui/QSpacerItem>
 #include <QtGui/QToolBar>
 #include <QtGui/QTreeWidget>
 #include <QtGui/QVBoxLayout>
@@ -37,19 +40,22 @@ public:
     QAction *actionPause;
     QAction *actionInfo;
     QWidget *centralWidget;
-    QGroupBox *groupBox_2;
-    QSlider *sliderTime;
-    QWidget *verticalLayoutWidget;
-    QVBoxLayout *verticalLayout_1;
-    QCommandLinkButton *btnLeap;
-    QCommandLinkButton *btnOn;
-    QLCDNumber *lcd2;
+    QGridLayout *gridLayout;
+    QVBoxLayout *verticalLayout;
+    QSpacerItem *horizontalSpacer_3;
+    QHBoxLayout *horizontalLayout;
     QLCDNumber *lcd0;
     QLCDNumber *lcd1;
+    QLCDNumber *lcd2;
+    QSlider *sliderTime;
+    QVBoxLayout *verticalLayout_1;
+    QGroupBox *groupBox;
+    QCommandLinkButton *btnLeap;
+    QCommandLinkButton *btnOn;
     QLabel *labelChooseObject;
     QLabel *labelChooseDate;
-    QWidget *verticalLayoutWidget_2;
     QVBoxLayout *verticalLayout_2;
+    QSpacerItem *horizontalSpacer;
     QTreeWidget *treeWidget;
     QToolBar *toolBar;
 
@@ -65,7 +71,6 @@ public:
         sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
         MainWindow->setSizePolicy(sizePolicy);
         MainWindow->setMinimumSize(QSize(800, 600));
-        MainWindow->setMaximumSize(QSize(800, 600));
         MainWindow->setDockOptions(QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks);
         MainWindow->setUnifiedTitleAndToolBarOnMac(false);
         actionSettings = new QAction(MainWindow);
@@ -96,60 +101,42 @@ public:
         actionInfo->setIcon(icon4);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
-        groupBox_2 = new QGroupBox(centralWidget);
-        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(9, 3, 781, 181));
-        groupBox_2->setMinimumSize(QSize(200, 50));
-        groupBox_2->setMaximumSize(QSize(16777215, 16777215));
-        sliderTime = new QSlider(groupBox_2);
-        sliderTime->setObjectName(QString::fromUtf8("sliderTime"));
-        sliderTime->setEnabled(false);
-        sliderTime->setGeometry(QRect(10, 51, 581, 20));
-        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        gridLayout = new QGridLayout(centralWidget);
+        gridLayout->setSpacing(6);
+        gridLayout->setContentsMargins(11, 11, 11, 11);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setSpacing(6);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        horizontalSpacer_3 = new QSpacerItem(40, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        verticalLayout->addItem(horizontalSpacer_3);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        lcd0 = new QLCDNumber(centralWidget);
+        lcd0->setObjectName(QString::fromUtf8("lcd0"));
+        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Fixed);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(sliderTime->sizePolicy().hasHeightForWidth());
-        sliderTime->setSizePolicy(sizePolicy1);
-        sliderTime->setMinimum(1);
-        sliderTime->setValue(99);
-        sliderTime->setOrientation(Qt::Horizontal);
-        verticalLayoutWidget = new QWidget(groupBox_2);
-        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(10, 80, 581, 91));
-        verticalLayout_1 = new QVBoxLayout(verticalLayoutWidget);
-        verticalLayout_1->setSpacing(6);
-        verticalLayout_1->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_1->setObjectName(QString::fromUtf8("verticalLayout_1"));
-        verticalLayout_1->setContentsMargins(0, 0, 0, 0);
-        btnLeap = new QCommandLinkButton(groupBox_2);
-        btnLeap->setObjectName(QString::fromUtf8("btnLeap"));
-        btnLeap->setEnabled(false);
-        btnLeap->setGeometry(QRect(616, 100, 161, 40));
-        QIcon icon5;
-        icon5.addFile(QString::fromUtf8(":/new/prefix1/res/jump.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        btnLeap->setIcon(icon5);
-        btnOn = new QCommandLinkButton(groupBox_2);
-        btnOn->setObjectName(QString::fromUtf8("btnOn"));
-        btnOn->setEnabled(true);
-        btnOn->setGeometry(QRect(616, 10, 161, 40));
-        QIcon icon6;
-        icon6.addFile(QString::fromUtf8(":/new/prefix1/res/on.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        btnOn->setIcon(icon6);
-        btnOn->setIconSize(QSize(20, 20));
-        lcd2 = new QLCDNumber(groupBox_2);
-        lcd2->setObjectName(QString::fromUtf8("lcd2"));
-        lcd2->setGeometry(QRect(530, 16, 64, 31));
-        lcd2->setFrameShape(QFrame::NoFrame);
-        lcd2->setSegmentStyle(QLCDNumber::Flat);
-        lcd0 = new QLCDNumber(groupBox_2);
-        lcd0->setObjectName(QString::fromUtf8("lcd0"));
-        lcd0->setGeometry(QRect(-40, 16, 64, 31));
-        lcd0->setLayoutDirection(Qt::RightToLeft);
+        sizePolicy1.setHeightForWidth(lcd0->sizePolicy().hasHeightForWidth());
+        lcd0->setSizePolicy(sizePolicy1);
+        lcd0->setMaximumSize(QSize(30, 25));
         lcd0->setFrameShape(QFrame::NoFrame);
+        lcd0->setDigitCount(1);
         lcd0->setSegmentStyle(QLCDNumber::Flat);
-        lcd1 = new QLCDNumber(groupBox_2);
+
+        horizontalLayout->addWidget(lcd0);
+
+        lcd1 = new QLCDNumber(centralWidget);
         lcd1->setObjectName(QString::fromUtf8("lcd1"));
-        lcd1->setGeometry(QRect(250, 16, 64, 31));
+        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(lcd1->sizePolicy().hasHeightForWidth());
+        lcd1->setSizePolicy(sizePolicy2);
+        lcd1->setMaximumSize(QSize(16777215, 30));
         QPalette palette;
         QBrush brush(QColor(0, 0, 106, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -159,37 +146,108 @@ public:
         brush1.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Disabled, QPalette::WindowText, brush1);
         lcd1->setPalette(palette);
+        lcd1->setFrameShape(QFrame::NoFrame);
+        lcd1->setDigitCount(5);
+        lcd1->setSegmentStyle(QLCDNumber::Flat);
+
+        horizontalLayout->addWidget(lcd1);
+
+        lcd2 = new QLCDNumber(centralWidget);
+        lcd2->setObjectName(QString::fromUtf8("lcd2"));
+        sizePolicy1.setHeightForWidth(lcd2->sizePolicy().hasHeightForWidth());
+        lcd2->setSizePolicy(sizePolicy1);
+        lcd2->setMaximumSize(QSize(16777215, 30));
+        lcd2->setFrameShape(QFrame::NoFrame);
+        lcd2->setDigitCount(5);
+        lcd2->setSegmentStyle(QLCDNumber::Flat);
+
+        horizontalLayout->addWidget(lcd2);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
+        sliderTime = new QSlider(centralWidget);
+        sliderTime->setObjectName(QString::fromUtf8("sliderTime"));
+        sliderTime->setEnabled(false);
+        sizePolicy2.setHeightForWidth(sliderTime->sizePolicy().hasHeightForWidth());
+        sliderTime->setSizePolicy(sizePolicy2);
+        sliderTime->setMinimum(1);
+        sliderTime->setValue(99);
+        sliderTime->setOrientation(Qt::Horizontal);
+
+        verticalLayout->addWidget(sliderTime);
+
+        verticalLayout_1 = new QVBoxLayout();
+        verticalLayout_1->setSpacing(6);
+        verticalLayout_1->setObjectName(QString::fromUtf8("verticalLayout_1"));
+
+        verticalLayout->addLayout(verticalLayout_1);
+
+
+        gridLayout->addLayout(verticalLayout, 0, 0, 1, 1);
+
+        groupBox = new QGroupBox(centralWidget);
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        groupBox->setMinimumSize(QSize(180, 150));
+        groupBox->setMaximumSize(QSize(16777215, 150));
+        btnLeap = new QCommandLinkButton(groupBox);
+        btnLeap->setObjectName(QString::fromUtf8("btnLeap"));
+        btnLeap->setEnabled(false);
+        btnLeap->setGeometry(QRect(10, 100, 161, 40));
+        QIcon icon5;
+        icon5.addFile(QString::fromUtf8(":/new/prefix1/res/jump.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        btnLeap->setIcon(icon5);
+        btnOn = new QCommandLinkButton(groupBox);
+        btnOn->setObjectName(QString::fromUtf8("btnOn"));
+        btnOn->setEnabled(true);
+        btnOn->setGeometry(QRect(10, 10, 161, 40));
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8(":/new/prefix1/res/on.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        btnOn->setIcon(icon6);
+        btnOn->setIconSize(QSize(20, 20));
+        labelChooseObject = new QLabel(groupBox);
+        labelChooseObject->setObjectName(QString::fromUtf8("labelChooseObject"));
+        labelChooseObject->setEnabled(false);
+        labelChooseObject->setGeometry(QRect(44, 47, 91, 16));
         QFont font;
         font.setBold(false);
         font.setWeight(50);
-        lcd1->setFont(font);
-        lcd1->setFrameShape(QFrame::NoFrame);
-        lcd1->setSegmentStyle(QLCDNumber::Flat);
-        labelChooseObject = new QLabel(groupBox_2);
-        labelChooseObject->setObjectName(QString::fromUtf8("labelChooseObject"));
-        labelChooseObject->setEnabled(false);
-        labelChooseObject->setGeometry(QRect(650, 47, 91, 16));
         labelChooseObject->setFont(font);
-        labelChooseDate = new QLabel(groupBox_2);
+        labelChooseDate = new QLabel(groupBox);
         labelChooseDate->setObjectName(QString::fromUtf8("labelChooseDate"));
         labelChooseDate->setEnabled(false);
-        labelChooseDate->setGeometry(QRect(650, 63, 91, 16));
-        verticalLayoutWidget_2 = new QWidget(centralWidget);
-        verticalLayoutWidget_2->setObjectName(QString::fromUtf8("verticalLayoutWidget_2"));
-        verticalLayoutWidget_2->setGeometry(QRect(20, 200, 581, 351));
-        verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget_2);
+        labelChooseDate->setGeometry(QRect(44, 63, 91, 16));
+
+        gridLayout->addWidget(groupBox, 0, 1, 1, 1);
+
+        verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        horizontalSpacer = new QSpacerItem(40, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        verticalLayout_2->addItem(horizontalSpacer);
+
+
+        gridLayout->addLayout(verticalLayout_2, 1, 0, 1, 1);
+
         treeWidget = new QTreeWidget(centralWidget);
         QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem();
         __qtreewidgetitem->setText(0, QString::fromUtf8("1"));
         treeWidget->setHeaderItem(__qtreewidgetitem);
         treeWidget->setObjectName(QString::fromUtf8("treeWidget"));
-        treeWidget->setGeometry(QRect(610, 200, 181, 351));
+        treeWidget->setMinimumSize(QSize(180, 0));
+        treeWidget->setMaximumSize(QSize(180, 16777215));
         treeWidget->header()->setVisible(false);
+
+        gridLayout->addWidget(treeWidget, 1, 1, 1, 1);
+
         MainWindow->setCentralWidget(centralWidget);
+        treeWidget->raise();
+        btnLeap->raise();
+        btnOn->raise();
+        labelChooseObject->raise();
+        labelChooseDate->raise();
+        groupBox->raise();
         toolBar = new QToolBar(MainWindow);
         toolBar->setObjectName(QString::fromUtf8("toolBar"));
         MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
@@ -227,7 +285,7 @@ public:
         actionPause->setToolTip(QApplication::translate("MainWindow", "Pause", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
         actionInfo->setText(QApplication::translate("MainWindow", "Info", 0, QApplication::UnicodeUTF8));
-        groupBox_2->setTitle(QApplication::translate("MainWindow", "Time Machine", 0, QApplication::UnicodeUTF8));
+        groupBox->setTitle(QString());
         btnLeap->setText(QApplication::translate("MainWindow", "Leap", 0, QApplication::UnicodeUTF8));
         btnOn->setText(QApplication::translate("MainWindow", "Power", 0, QApplication::UnicodeUTF8));
         labelChooseObject->setText(QApplication::translate("MainWindow", "- choose object", 0, QApplication::UnicodeUTF8));
