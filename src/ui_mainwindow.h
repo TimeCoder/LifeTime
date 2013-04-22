@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Mon 15. Apr 01:18:44 2013
+** Created: Mon 22. Apr 21:15:20 2013
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -49,14 +49,14 @@ public:
     QLCDNumber *lcd2;
     QSlider *sliderTime;
     QVBoxLayout *verticalLayout_1;
+    QVBoxLayout *verticalLayout_2;
+    QSpacerItem *horizontalSpacer;
+    QTreeWidget *treeWidget;
     QGroupBox *groupBox;
     QCommandLinkButton *btnLeap;
     QCommandLinkButton *btnOn;
     QLabel *labelChooseObject;
     QLabel *labelChooseDate;
-    QVBoxLayout *verticalLayout_2;
-    QSpacerItem *horizontalSpacer;
-    QTreeWidget *treeWidget;
     QToolBar *toolBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -186,40 +186,6 @@ public:
 
         gridLayout->addLayout(verticalLayout, 0, 0, 1, 1);
 
-        groupBox = new QGroupBox(centralWidget);
-        groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setMinimumSize(QSize(180, 150));
-        groupBox->setMaximumSize(QSize(16777215, 150));
-        btnLeap = new QCommandLinkButton(groupBox);
-        btnLeap->setObjectName(QString::fromUtf8("btnLeap"));
-        btnLeap->setEnabled(false);
-        btnLeap->setGeometry(QRect(10, 100, 161, 40));
-        QIcon icon5;
-        icon5.addFile(QString::fromUtf8(":/new/prefix1/res/jump.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        btnLeap->setIcon(icon5);
-        btnOn = new QCommandLinkButton(groupBox);
-        btnOn->setObjectName(QString::fromUtf8("btnOn"));
-        btnOn->setEnabled(true);
-        btnOn->setGeometry(QRect(10, 10, 161, 40));
-        QIcon icon6;
-        icon6.addFile(QString::fromUtf8(":/new/prefix1/res/on.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        btnOn->setIcon(icon6);
-        btnOn->setIconSize(QSize(20, 20));
-        labelChooseObject = new QLabel(groupBox);
-        labelChooseObject->setObjectName(QString::fromUtf8("labelChooseObject"));
-        labelChooseObject->setEnabled(false);
-        labelChooseObject->setGeometry(QRect(44, 47, 91, 16));
-        QFont font;
-        font.setBold(false);
-        font.setWeight(50);
-        labelChooseObject->setFont(font);
-        labelChooseDate = new QLabel(groupBox);
-        labelChooseDate->setObjectName(QString::fromUtf8("labelChooseDate"));
-        labelChooseDate->setEnabled(false);
-        labelChooseDate->setGeometry(QRect(44, 63, 91, 16));
-
-        gridLayout->addWidget(groupBox, 0, 1, 1, 1);
-
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
@@ -241,12 +207,44 @@ public:
 
         gridLayout->addWidget(treeWidget, 1, 1, 1, 1);
 
+        groupBox = new QGroupBox(centralWidget);
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        groupBox->setMinimumSize(QSize(180, 150));
+        groupBox->setMaximumSize(QSize(16777215, 150));
+        btnLeap = new QCommandLinkButton(groupBox);
+        btnLeap->setObjectName(QString::fromUtf8("btnLeap"));
+        btnLeap->setEnabled(false);
+        btnLeap->setGeometry(QRect(10, 100, 161, 40));
+        QIcon icon5;
+        icon5.addFile(QString::fromUtf8(":/new/prefix1/res/jump.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        btnLeap->setIcon(icon5);
+        btnOn = new QCommandLinkButton(groupBox);
+        btnOn->setObjectName(QString::fromUtf8("btnOn"));
+        btnOn->setEnabled(true);
+        btnOn->setGeometry(QRect(10, 10, 161, 40));
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8(":/new/prefix1/res/on.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        btnOn->setIcon(icon6);
+        btnOn->setIconSize(QSize(20, 20));
+        btnOn->setCheckable(false);
+        btnOn->setDefault(false);
+        labelChooseObject = new QLabel(groupBox);
+        labelChooseObject->setObjectName(QString::fromUtf8("labelChooseObject"));
+        labelChooseObject->setEnabled(false);
+        labelChooseObject->setGeometry(QRect(44, 47, 91, 16));
+        QFont font;
+        font.setBold(false);
+        font.setWeight(50);
+        labelChooseObject->setFont(font);
+        labelChooseDate = new QLabel(groupBox);
+        labelChooseDate->setObjectName(QString::fromUtf8("labelChooseDate"));
+        labelChooseDate->setEnabled(false);
+        labelChooseDate->setGeometry(QRect(44, 63, 91, 16));
+
+        gridLayout->addWidget(groupBox, 0, 1, 1, 1);
+
         MainWindow->setCentralWidget(centralWidget);
         treeWidget->raise();
-        btnLeap->raise();
-        btnOn->raise();
-        labelChooseObject->raise();
-        labelChooseDate->raise();
         groupBox->raise();
         toolBar = new QToolBar(MainWindow);
         toolBar->setObjectName(QString::fromUtf8("toolBar"));
@@ -287,7 +285,7 @@ public:
         actionInfo->setText(QApplication::translate("MainWindow", "Info", 0, QApplication::UnicodeUTF8));
         groupBox->setTitle(QString());
         btnLeap->setText(QApplication::translate("MainWindow", "Leap", 0, QApplication::UnicodeUTF8));
-        btnOn->setText(QApplication::translate("MainWindow", "Power", 0, QApplication::UnicodeUTF8));
+        btnOn->setText(QApplication::translate("MainWindow", "Begin", 0, QApplication::UnicodeUTF8));
         labelChooseObject->setText(QApplication::translate("MainWindow", "- choose object", 0, QApplication::UnicodeUTF8));
         labelChooseDate->setText(QApplication::translate("MainWindow", "- choose time", 0, QApplication::UnicodeUTF8));
         toolBar->setWindowTitle(QApplication::translate("MainWindow", "toolBar", 0, QApplication::UnicodeUTF8));

@@ -194,6 +194,50 @@
       </item>
      </layout>
     </item>
+    <item row="1" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Expanding</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="1">
+     <widget class="QTreeWidget" name="treeWidget">
+      <property name="minimumSize">
+       <size>
+        <width>180</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>180</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <attribute name="headerVisible">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string notr="true">1</string>
+       </property>
+      </column>
+     </widget>
+    </item>
     <item row="0" column="1">
      <widget class="QGroupBox" name="groupBox">
       <property name="minimumSize">
@@ -244,7 +288,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Power</string>
+        <string>Begin</string>
        </property>
        <property name="icon">
         <iconset resource="ui.qrc">
@@ -255,6 +299,12 @@
          <width>20</width>
          <height>20</height>
         </size>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
        </property>
       </widget>
       <widget class="QLabel" name="labelChooseObject">
@@ -297,59 +347,9 @@
       </widget>
      </widget>
     </item>
-    <item row="1" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Expanding</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>0</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </item>
-    <item row="1" column="1">
-     <widget class="QTreeWidget" name="treeWidget">
-      <property name="minimumSize">
-       <size>
-        <width>180</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>180</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <attribute name="headerVisible">
-       <bool>false</bool>
-      </attribute>
-      <column>
-       <property name="text">
-        <string notr="true">1</string>
-       </property>
-      </column>
-     </widget>
-    </item>
    </layout>
-   <zorder>verticalLayoutWidget_2</zorder>
    <zorder>treeWidget</zorder>
-   <zorder>btnLeap</zorder>
-   <zorder>btnOn</zorder>
-   <zorder>labelChooseObject</zorder>
-   <zorder>labelChooseDate</zorder>
    <zorder>groupBox</zorder>
-   <zorder>verticalLayoutWidget_3</zorder>
   </widget>
   <widget class="QToolBar" name="toolBar">
    <property name="windowTitle">
