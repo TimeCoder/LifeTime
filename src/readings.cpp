@@ -22,7 +22,7 @@ void Readings::clear()
 
     leapDifMax = 0.f;
     leapDifRoot = 0.f;
-    leapDifFade = 0.f;
+    leapDifK = 0.f;
     leapRootInvar = 0.f;
     leapType = 0;
 }

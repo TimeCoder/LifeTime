@@ -31,6 +31,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     m_readingsUI.init(ui->treeWidget);
 
+    ui->comboFlow->addItem("r0 - trunk");
+    ui->comboFlow->addItem("r1 - branch");
+    ui->comboFlow->setCurrentIndex(0);
+
     //
     // Setup timer
     //
@@ -54,6 +58,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(m_lifeView,  SIGNAL(chooseObjectEvent(int, int)),
             m_timeModel, SLOT(on_chooseObject(int, int)) );
+
+    connect(ui->comboFlow, SIGNAL(currentIndexChanged(int)),
+            m_timeModel, SLOT(on_switchFlow(int)) );
 
     // run
     start();
@@ -131,6 +138,9 @@ void MainWindow::enableControls()
 
     ui->btnOn->setEnabled(!m_tmOn && !m_tmBlocked);
     ui->btnLeap->setEnabled(m_tmOn && m_choosedTime);
+
+    ui->labelFlow->setEnabled(m_tmBlocked);
+    ui->comboFlow->setEnabled(m_tmBlocked);
 }
 
 
@@ -227,3 +237,5 @@ void MainWindow::on_actionInfo_triggered()
     dlg.exec();
     if (!wasPause) on_actionPlay_triggered();
 }
+
+

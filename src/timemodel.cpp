@@ -75,7 +75,7 @@ void TimeModel::next()
         if (m_readings.state == Readings::inLoop)
         {
             m_readings.leapDifRoot   = m_flows[m_curFlow]->b(m_curTime);
-            m_readings.leapDifFade   = m_readings.leapDifRoot / m_readings.leapDifMax;
+            m_readings.leapDifK      = m_readings.leapDifRoot / m_readings.leapDifMax;
             m_readings.leapRootInvar = m_flows[m_curFlow]->life()->crossObject(m_object);
 
             // TODO: hardcode to settings
@@ -144,4 +144,8 @@ float TimeModel::objectSize() const
     return (float)m_object.size() / (world.rows() * world.cols());
 }
 
-
+void TimeModel::on_switchFlow(int flow)
+{
+    m_curFlow = flow;
+    emit worldChangeEvent(m_flows[m_curFlow]->world(m_curTime), m_object, m_readings.state);
+}

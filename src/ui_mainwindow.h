@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Mon 22. Apr 21:15:20 2013
+** Created: Fri 26. Apr 23:51:23 2013
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -14,6 +14,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QComboBox>
 #include <QtGui/QCommandLinkButton>
 #include <QtGui/QGridLayout>
 #include <QtGui/QGroupBox>
@@ -51,12 +52,16 @@ public:
     QVBoxLayout *verticalLayout_1;
     QVBoxLayout *verticalLayout_2;
     QSpacerItem *horizontalSpacer;
+    QHBoxLayout *horizontalLayout_4;
     QTreeWidget *treeWidget;
     QGroupBox *groupBox;
     QCommandLinkButton *btnLeap;
     QCommandLinkButton *btnOn;
     QLabel *labelChooseObject;
     QLabel *labelChooseDate;
+    QGroupBox *groupBox_2;
+    QLabel *labelFlow;
+    QComboBox *comboFlow;
     QToolBar *toolBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -193,8 +198,14 @@ public:
 
         verticalLayout_2->addItem(horizontalSpacer);
 
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
 
-        gridLayout->addLayout(verticalLayout_2, 1, 0, 1, 1);
+        verticalLayout_2->addLayout(horizontalLayout_4);
+
+
+        gridLayout->addLayout(verticalLayout_2, 2, 0, 1, 1);
 
         treeWidget = new QTreeWidget(centralWidget);
         QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem();
@@ -205,7 +216,7 @@ public:
         treeWidget->setMaximumSize(QSize(180, 16777215));
         treeWidget->header()->setVisible(false);
 
-        gridLayout->addWidget(treeWidget, 1, 1, 1, 1);
+        gridLayout->addWidget(treeWidget, 2, 1, 1, 1);
 
         groupBox = new QGroupBox(centralWidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
@@ -214,7 +225,7 @@ public:
         btnLeap = new QCommandLinkButton(groupBox);
         btnLeap->setObjectName(QString::fromUtf8("btnLeap"));
         btnLeap->setEnabled(false);
-        btnLeap->setGeometry(QRect(10, 100, 161, 40));
+        btnLeap->setGeometry(QRect(10, 98, 161, 40));
         QIcon icon5;
         icon5.addFile(QString::fromUtf8(":/new/prefix1/res/jump.ico"), QSize(), QIcon::Normal, QIcon::Off);
         btnLeap->setIcon(icon5);
@@ -243,9 +254,25 @@ public:
 
         gridLayout->addWidget(groupBox, 0, 1, 1, 1);
 
+        groupBox_2 = new QGroupBox(centralWidget);
+        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
+        groupBox_2->setMinimumSize(QSize(0, 40));
+        labelFlow = new QLabel(groupBox_2);
+        labelFlow->setObjectName(QString::fromUtf8("labelFlow"));
+        labelFlow->setEnabled(false);
+        labelFlow->setGeometry(QRect(16, 4, 31, 31));
+        sizePolicy.setHeightForWidth(labelFlow->sizePolicy().hasHeightForWidth());
+        labelFlow->setSizePolicy(sizePolicy);
+        labelFlow->setMaximumSize(QSize(40, 16777215));
+        comboFlow = new QComboBox(groupBox_2);
+        comboFlow->setObjectName(QString::fromUtf8("comboFlow"));
+        comboFlow->setEnabled(true);
+        comboFlow->setGeometry(QRect(50, 10, 150, 20));
+        comboFlow->setMaximumSize(QSize(150, 16777215));
+
+        gridLayout->addWidget(groupBox_2, 3, 0, 1, 2);
+
         MainWindow->setCentralWidget(centralWidget);
-        treeWidget->raise();
-        groupBox->raise();
         toolBar = new QToolBar(MainWindow);
         toolBar->setObjectName(QString::fromUtf8("toolBar"));
         MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
@@ -288,6 +315,8 @@ public:
         btnOn->setText(QApplication::translate("MainWindow", "Begin", 0, QApplication::UnicodeUTF8));
         labelChooseObject->setText(QApplication::translate("MainWindow", "- choose object", 0, QApplication::UnicodeUTF8));
         labelChooseDate->setText(QApplication::translate("MainWindow", "- choose time", 0, QApplication::UnicodeUTF8));
+        groupBox_2->setTitle(QString());
+        labelFlow->setText(QApplication::translate("MainWindow", "Flow:", 0, QApplication::UnicodeUTF8));
         toolBar->setWindowTitle(QApplication::translate("MainWindow", "toolBar", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

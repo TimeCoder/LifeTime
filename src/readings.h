@@ -34,8 +34,8 @@ struct Readings
     float leapDifMax;
     // Reality dif at loop end
     float leapDifRoot;
-    // Fade of reality dif (0 - total fade)
-    float leapDifFade;
+    // Coef. of dif stable in root of loop (0 - total fade)
+    float leapDifK;
     // Invar of object after leap
     float leapRootInvar;
     // Degree of history change

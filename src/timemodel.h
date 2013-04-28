@@ -41,6 +41,7 @@ public:
 
     float objectSize() const;
 
+
 signals:
     void worldChangeEvent(const World& world, const World::TCells& object, Readings::eStates);
     void timeChangeEvent(const TimeModel::TimeFlows& flows, const TimeModel::Bounds& bounds);
@@ -49,6 +50,7 @@ signals:
 
 public slots:
     void on_chooseObject(int col, int row);
+    void on_switchFlow(int flow);
 
 private:
     TimeFlows     m_flows;

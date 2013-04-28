@@ -25,7 +25,7 @@ struct ReadingsUI
 
     QTreeWidgetItem* itemLeapDifMax;
     QTreeWidgetItem* itemLeapDifRoot;
-    QTreeWidgetItem* itemLeapDifFade;
+    QTreeWidgetItem* itemLeapDifK;
     QTreeWidgetItem* itemLeapRootInvar;
     QTreeWidgetItem* itemLeapType;
 

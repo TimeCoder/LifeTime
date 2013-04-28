@@ -28,7 +28,7 @@ void ReadingsUI::init(QTreeWidget* treeWidget)
     itemLeapDistance = new QTreeWidgetItem(leap, QStringList("Distance:"));
     itemLeapDifMax = new QTreeWidgetItem(leap, QStringList("Dif max.:"));
     itemLeapDifRoot = new QTreeWidgetItem(leap, QStringList("Dif root:"));
-    itemLeapDifFade = new QTreeWidgetItem(leap, QStringList("Dif fade:"));
+    itemLeapDifK = new QTreeWidgetItem(leap, QStringList("Dif coef.:"));
     itemLeapRootInvar = new QTreeWidgetItem(leap, QStringList("Root invar:"));
     itemLeapType = new QTreeWidgetItem(leap, QStringList("Leap type:"));
 
@@ -50,7 +50,7 @@ void ReadingsUI::update(const Readings& readings)
 
     itemLeapDifMax->setText(1, QString::number(readings.leapDifMax));
     itemLeapDifRoot->setText(1, QString::number(readings.leapDifRoot));
-    itemLeapDifFade->setText(1, QString::number(readings.leapDifFade));
+    itemLeapDifK->setText(1, QString::number(readings.leapDifK));
     itemLeapRootInvar->setText(1, QString::number(readings.leapRootInvar));
 
     QString leapType;
