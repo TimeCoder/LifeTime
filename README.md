@@ -13,6 +13,6 @@ There are disputes about how the history may respond to attempts of its change. 
 Want to know more?
 This and many other projects is a part of "Time Academy", an open community for a comprehensive study of the nature of time. Welcome!
 
-Igor Zimaev / i.zimaev@timeacademy.ru //  life.timeacademy.ru
+Igor Zimaev / i.zimaev@timeacademy.ru 
 
 
