@@ -136,7 +136,7 @@ void MainWindow::enableControls()
 
     m_lifeView->fixObject(!m_tmOn);
 
-    ui->btnOn->setEnabled(!m_tmOn && !m_tmBlocked);
+    ui->btnOn->setEnabled(!m_tmOn && !m_tmBlocked && !m_choosedTime);
     ui->btnLeap->setEnabled(m_tmOn && m_choosedTime);
 
     ui->labelFlow->setEnabled(m_tmBlocked);
@@ -178,6 +178,7 @@ void MainWindow::on_btnLeap_clicked()
 {
     m_timeModel->gotoPast(ui->sliderTime->value());
     m_tmOn = false;
+    enableControls();
 }
 
 
