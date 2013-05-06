@@ -2,7 +2,7 @@
 //  LifeView - view of world (use OpenGL)
 //
 //  Project: "LifeTime"
-//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
+//  Autor: Igor Zimaev  (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 
 #ifndef LIFEVIEW_H

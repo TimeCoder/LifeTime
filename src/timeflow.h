@@ -2,7 +2,7 @@
 //  TimeFlow - flow of time, contains world's history and branch curve
 //
 //  Project: "LifeTime"
-//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
+//  Autor: Igor Zimaev  (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef FLOW_H
 #define FLOW_H

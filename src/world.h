@@ -2,7 +2,7 @@
 //  World - cellular 2D world
 //
 //  Project: "LifeTime"
-//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
+//  Autor: Igor Zimaev  (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef WORLD_H
 #define WORLD_H

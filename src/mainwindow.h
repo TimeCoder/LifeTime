@@ -2,7 +2,7 @@
 //  MainWindow - main app window
 //
 //  Project: "LifeTime"
-//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
+//  Autor: Igor Zimaev  (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H

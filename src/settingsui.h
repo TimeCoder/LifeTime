@@ -2,7 +2,7 @@
 //  SettingsUI - view of global app settings
 //
 //  Project: "LifeTime"
-//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
+//  Autor: Igor Zimaev  (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef SETTINGSUI_H
 #define SETTINGSUI_H

@@ -2,7 +2,7 @@
 //  TimeModel - multiversum, contains all time flows (time tree)
 //
 //  Project: "LifeTime"
-//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
+//  Autor: Igor Zimaev  (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef TIMEMODEL_H
 #define TIMEMODEL_H

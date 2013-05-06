@@ -2,7 +2,7 @@
 //  InfoUI - help and about window
 //
 //  Project: "LifeTime"
-//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
+//  Autor: Igor Zimaev  (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef INFOUI_H
 #define INFOUI_H

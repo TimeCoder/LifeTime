@@ -2,7 +2,7 @@
 //  LifeModel - world's life calculation, implementation of Conway algorythm
 //
 //  Project: "LifeTime"
-//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
+//  Autor: Igor Zimaev  (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef LIFEMODEL_H
 #define LIFEMODEL_H

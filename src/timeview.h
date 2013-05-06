@@ -2,7 +2,7 @@
 //  TimeView - view of time tree (use OpenGL)
 //
 //  Project: "LifeTime"
-//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
+//  Autor: Igor Zimaev  (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef TIMEVIEW_H
 #define TIMEVIEW_H

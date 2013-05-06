@@ -2,7 +2,7 @@
 //  ReadingsUI - view of time machine data
 //
 //  Project: "LifeTime"
-//  Autor: Zimaev Igor (i.zimaev@timeacademy.ru)
+//  Autor: Igor Zimaev  (i.zimaev@timeacademy.ru)
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef READINGSUI_H
 #define READINGSUI_H
