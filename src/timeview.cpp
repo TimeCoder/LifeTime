@@ -2,6 +2,8 @@
 #include "timemodel.h"
 #include "timeflow.h"
 #include "settings.h"
+#include <GL/glu.h>
+#include <GL/glut.h>
 
 TimeView::TimeView(QWidget *parent) :
     QGLWidget(QGLFormat(QGL::SampleBuffers), parent),
