@@ -32,6 +32,7 @@ const World& World::operator = (const World& rhs)
             m_cells[i][j] = rhs.m_cells[i][j];
         }
     }
+    return *this;
 }
 
 

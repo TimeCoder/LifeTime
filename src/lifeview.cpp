@@ -2,8 +2,10 @@
 #include "lifeview.h"
 #include "world.h"
 #include "settings.h"
+#ifdef __LINUX
 #include <GL/glu.h>
 #include <GL/glut.h>
+#endif
 
 LifeView::LifeView(QWidget *parent) :
     QGLWidget(QGLFormat(QGL::SampleBuffers), parent),
