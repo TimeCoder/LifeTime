@@ -47,3 +47,5 @@ RESOURCES += \
     ui.qrc
 
 unix:LIBS += -lGLU
+unix:DEFINES += __LINUX
+
