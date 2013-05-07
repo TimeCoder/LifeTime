@@ -45,3 +45,5 @@ OTHER_FILES +=
 
 RESOURCES += \
     ui.qrc
+
+unix:LIBS += -lGLU
