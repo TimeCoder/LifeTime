@@ -1,12 +1,11 @@
 #include "world.h"
 
-World::World() : m_rows(0), m_cols(0), m_cells(0)
+World::World() : m_cells(0), m_rows(0), m_cols(0)
 {
 }
 
 
-World::World(const World& obj)
-    : m_rows(0), m_cols(0), m_cells(0)
+World::World(const World& obj) : m_cells(0), m_rows(0), m_cols(0)
 {
     (*this) = obj;
 }

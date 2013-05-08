@@ -3,10 +3,10 @@
 #include "lifemodel.h"
 #include "world.h"
 
-LifeModel::LifeModel()
-  : m_worldPrev(new World()),
-    m_worldCur(new World()),
-    m_filling(0.f)
+LifeModel::LifeModel() :
+	m_worldCur(new World()),
+	m_worldPrev(new World()),
+	m_filling(0.f)
 {
 }
 
