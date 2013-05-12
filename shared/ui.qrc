@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/help.ico</file>
+        <file>img/jump.ico</file>
+        <file>img/on.ico</file>
+        <file>img/pause.ico</file>
+        <file>img/play.ico</file>
+        <file>img/restart.ico</file>
+        <file>img/settings.ico</file>
+    </qresource>
+</RCC>

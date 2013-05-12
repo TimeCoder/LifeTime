@@ -274,7 +274,7 @@
         <string>Leap</string>
        </property>
        <property name="icon">
-        <iconset resource="ui.qrc">
+        <iconset>
          <normaloff>:/new/prefix1/res/jump.ico</normaloff>:/new/prefix1/res/jump.ico</iconset>
        </property>
       </widget>
@@ -294,7 +294,7 @@
         <string>Begin</string>
        </property>
        <property name="icon">
-        <iconset resource="ui.qrc">
+        <iconset>
          <normaloff>:/new/prefix1/res/on.ico</normaloff>:/new/prefix1/res/on.ico</iconset>
        </property>
        <property name="iconSize">
@@ -432,8 +432,8 @@
   </widget>
   <action name="actionSettings">
    <property name="icon">
-    <iconset resource="ui.qrc">
-     <normaloff>:/new/prefix1/res/settings.ico</normaloff>:/new/prefix1/res/settings.ico</iconset>
+    <iconset resource="../shared/ui.qrc">
+     <normaloff>:/img/settings.ico</normaloff>:/img/settings.ico</iconset>
    </property>
    <property name="text">
     <string>Settings</string>
@@ -444,8 +444,8 @@
   </action>
   <action name="actionRestart">
    <property name="icon">
-    <iconset resource="ui.qrc">
-     <normaloff>:/new/prefix1/res/restart.ico</normaloff>:/new/prefix1/res/restart.ico</iconset>
+    <iconset resource="../shared/ui.qrc">
+     <normaloff>:/img/restart.ico</normaloff>:/img/restart.ico</iconset>
    </property>
    <property name="text">
     <string>Restart</string>
@@ -459,8 +459,8 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="ui.qrc">
-     <normaloff>:/new/prefix1/res/play.ico</normaloff>:/new/prefix1/res/play.ico</iconset>
+    <iconset resource="../shared/ui.qrc">
+     <normaloff>:/img/play.ico</normaloff>:/img/play.ico</iconset>
    </property>
    <property name="text">
     <string>Play</string>
@@ -471,8 +471,8 @@
   </action>
   <action name="actionPause">
    <property name="icon">
-    <iconset resource="ui.qrc">
-     <normaloff>:/new/prefix1/res/pause.ico</normaloff>:/new/prefix1/res/pause.ico</iconset>
+    <iconset resource="../shared/ui.qrc">
+     <normaloff>:/img/pause.ico</normaloff>:/img/pause.ico</iconset>
    </property>
    <property name="text">
     <string>Pause</string>
@@ -483,8 +483,8 @@
   </action>
   <action name="actionInfo">
    <property name="icon">
-    <iconset resource="ui.qrc">
-     <normaloff>:/new/prefix1/res/help.ico</normaloff>:/new/prefix1/res/help.ico</iconset>
+    <iconset resource="../shared/ui.qrc">
+     <normaloff>:/img/help.ico</normaloff>:/img/help.ico</iconset>
    </property>
    <property name="text">
     <string>Info</string>
@@ -493,7 +493,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="ui.qrc"/>
+  <include location="../shared/ui.qrc"/>
  </resources>
  <connections/>
 </ui>
