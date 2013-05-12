@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui opengl
+QT       += core widgets opengl
 
 TARGET = LifeTime
 TEMPLATE = app
@@ -43,7 +43,3 @@ FORMS    += src/settingsui.ui \
     src/infoui.ui
 
 RESOURCES += shared/ui.qrc
-
-unix:LIBS += -lGLU
-unix:DEFINES += __LINUX
-

@@ -2,9 +2,14 @@
 #include "timemodel.h"
 #include "timeflow.h"
 #include "settings.h"
-#ifdef __LINUX
+
+#ifdef Q_OS_LINUX
 #include <GL/glu.h>
 #include <GL/glut.h>
+#endif
+
+#ifdef Q_OS_MAC
+#include <OpenGL/glu.h>
 #endif
 
 TimeView::TimeView(QWidget *parent) :

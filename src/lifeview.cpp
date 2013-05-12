@@ -2,9 +2,14 @@
 #include "lifeview.h"
 #include "world.h"
 #include "settings.h"
-#ifdef __LINUX
+
+#ifdef Q_OS_LINUX
 #include <GL/glu.h>
 #include <GL/glut.h>
+#endif
+
+#ifdef Q_OS_MAC
+#include <OpenGL/glu.h>
 #endif
 
 LifeView::LifeView(QWidget *parent) :
@@ -116,8 +121,8 @@ void LifeView::mousePressEvent(QMouseEvent* event)
 {
     if (m_fixObject) return;
 
-    int row = int( event->posF().y() / height() * m_world->rows() );
-    int col = int( event->posF().x() / width()  * m_world->cols() );
+    int row = int( event->pos().y() / height() * m_world->rows() );
+    int col = int( event->pos().x() / width()  * m_world->cols() );
 
     emit chooseObjectEvent(row, col);
 }
