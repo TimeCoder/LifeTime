@@ -37,7 +37,7 @@ public:
     void selectObject(int row, int col, TCells& object, bool begin=true) const;
 
 private:
-    bool** m_cells;
+    bool **m_cells;
     int    m_rows;
     int    m_cols;
 };

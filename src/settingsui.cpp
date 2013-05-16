@@ -13,6 +13,12 @@ SettingsUI::SettingsUI(QWidget *parent) :
     ui->spinWorldRows->setValue(Settings::instance().worldRows);
     ui->spinDesiredFPS->setValue(Settings::instance().desiredFPS);
     ui->spinInitFilling->setValue(Settings::instance().initFilling);
+
+    connect(ui->pushOK, &QPushButton::clicked,
+            this, &SettingsUI::saveSettings);
+
+    connect(ui->pushOK, &QPushButton::clicked,
+            this, &SettingsUI::close);
 }
 
 SettingsUI::~SettingsUI()
@@ -20,12 +26,10 @@ SettingsUI::~SettingsUI()
     delete ui;
 }
 
-void SettingsUI::on_pushOK_clicked()
+void SettingsUI::saveSettings()
 {
     Settings::instance().worldCols = ui->spinWorldCols->value();
     Settings::instance().worldRows = ui->spinWorldRows->value();
     Settings::instance().desiredFPS = ui->spinDesiredFPS->value();
     Settings::instance().initFilling = ui->spinInitFilling->value();
-
-    close();
 }

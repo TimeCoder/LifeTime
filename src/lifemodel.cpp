@@ -31,7 +31,6 @@ void LifeModel::start(int rows, int cols, int count)
     }
 }
 
-
 void LifeModel::setWorld(const World& world)
 {
     *m_worldPrev = world;
@@ -73,19 +72,19 @@ const World& LifeModel::next()
     m_worldPrev = m_worldCur;
     m_worldCur  = tmp;
 
-    m_filling = float(lifeCount) / (m_worldCur->rows() * m_worldCur->cols());
+    m_filling = double(lifeCount) / (m_worldCur->rows() * m_worldCur->cols());
 
     return (*m_worldPrev);
 }
 
 
-float LifeModel::filling() const
+double LifeModel::filling() const
 {
     return m_filling;
 }
 
 
-float LifeModel::crossObject(const World::TCells& object) const
+double LifeModel::crossObject(const World::TCells& object) const
 {
     int countMatch = 0;
     foreach(const World::TCell& c, object)
@@ -93,5 +92,5 @@ float LifeModel::crossObject(const World::TCells& object) const
         if (m_worldPrev->cell(c.first, c.second)) countMatch++;
     }
 
-    return float(countMatch) / object.size();
+    return double(countMatch) / object.size();
 }

@@ -5,15 +5,17 @@ InfoUI::InfoUI(QWidget *parent) :
   QDialog(parent),
   ui(new Ui::InfoUI)
 {
-  ui->setupUi(this);
+    ui->setupUi(this);
+    connect(ui->closeButton, &QPushButton::clicked,
+            this, &InfoUI::closeWindow);
 }
 
 InfoUI::~InfoUI()
 {
-  delete ui;
+    delete ui;
 }
 
-void InfoUI::on_pushButton_clicked()
+void InfoUI::closeWindow()
 {
     close();
 }

@@ -20,10 +20,10 @@ public:
 
     struct Bounds
     {
-        float tMin;
-        float tMax;
-        float bMin;
-        float bMax;
+        double tMin;
+        double tMax;
+        double bMin;
+        double bMax;
     };
 
     TimeModel();
@@ -39,14 +39,13 @@ public:
     int curTime() const;
     int maxTime() const;
 
-    float objectSize() const;
-
+    double objectSize() const;
 
 signals:
-    void worldChangeEvent(const World& world, const World::TCells& object, Readings::eStates);
-    void timeChangeEvent(const TimeModel::TimeFlows& flows, const TimeModel::Bounds& bounds);
-    void loopEndEvent();
-    void updateReadingsEvent(const Readings& readings);
+    void worldChanged(const World& world, const World::TCells& object, Readings::eStates);
+    void timeChanged(const TimeModel::TimeFlows& flows, const TimeModel::Bounds& bounds);
+    void loopFinished();
+    void readingsUpdated(const Readings& readings);
 
 public slots:
     void on_chooseObject(int col, int row);

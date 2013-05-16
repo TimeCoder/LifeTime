@@ -11,10 +11,10 @@ struct Readings
 {
     int worldWidth;
     int worldHeight;
-    float worldFill;
+    double worldFill;
 
     int objectSizeAbs;
-    float objectSizeRel;
+    double objectSizeRel;
 
     // TM state
     enum eStates
@@ -31,13 +31,13 @@ struct Readings
     int leapDistance;
 
     // Reality max dif
-    float leapDifMax;
+    double leapDifMax;
     // Reality dif at loop end
-    float leapDifRoot;
+    double leapDifRoot;
     // Coef. of dif stable in root of loop (0 - total fade)
-    float leapDifK;
+    double leapDifK;
     // Invar of object after leap
-    float leapRootInvar;
+    double leapRootInvar;
     // Degree of history change
     int   leapType;
 

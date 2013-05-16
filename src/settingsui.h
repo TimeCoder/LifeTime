@@ -20,9 +20,8 @@ class SettingsUI : public QDialog
 public:
   explicit SettingsUI(QWidget *parent = 0);
   ~SettingsUI();
-  
-private slots:
-  void on_pushOK_clicked();
+
+  void saveSettings();
 
 private:
   Ui::SettingsUI *ui;

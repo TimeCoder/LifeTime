@@ -1,12 +1,19 @@
-///////////////////////////////////////////////////////////////////////////////
-//  LifeView - view of world (use OpenGL)
 //
-//  Project: "LifeTime"
-//  Autor: Igor Zimaev  (i.zimaev@timeacademy.ru)
-///////////////////////////////////////////////////////////////////////////////
+// This file is part of the LifeTime project
+//
+// This program is free software licensed under the GNU LGPL. You can
+// find a copy of this license in LICENSE in the top directory of
+// the source code.
+//
+// Copyright 2013      Igor Zimaev       <i.zimaev@timeacademy.ru>
+// Copyright 2013      Illya Kovalevskyy <illya.kovalevskyy@gmail.com>
+//
+
+//  LifeView - view of world
 
 #ifndef LIFEVIEW_H
 #define LIFEVIEW_H
+
 #include <QGLWidget>
 #include "world.h"
 #include "readings.h"
@@ -21,21 +28,20 @@ public:
 
     // Freeze object choose
     void fixObject(bool fix);
-
-public slots:
-    void on_changeWorld(const World& world, const World::TCells& object, Readings::eStates state);
+    void renderNewWorld(const World& world, const World::TCells& object, Readings::eStates state);
 
 signals:
-    void chooseObjectEvent(int col, int row);
+    void objectChosen(int col, int row);
 
-private:
+protected:
     void initializeGL();
     void resizeGL(int nWidth, int nHeight);
     void paintGL();
     void mousePressEvent(QMouseEvent* event);
 
-    const World*          m_world;
-    const World::TCells*  m_object;
+private:
+    const World          *m_world;
+    const World::TCells  *m_object;
     bool                  m_fixObject;
     Readings::eStates     m_state;
 };

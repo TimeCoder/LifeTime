@@ -39,28 +39,28 @@ MainWindow::MainWindow(QWidget *parent) :
     // Setup timer
     //
     m_timer = new QTimer(this);
-    connect(m_timer, SIGNAL(timeout()), this, SLOT(on_render()));
+    connect(m_timer, &QTimer::timeout, this, &MainWindow::on_render);
 
     //
     // bind models and views
     //
-    connect(m_timeModel, SIGNAL(worldChangeEvent(const World&, const World::TCells&, Readings::eStates)),
-            m_lifeView,  SLOT(on_changeWorld(const World&, const World::TCells&, Readings::eStates)) );
+    connect(m_timeModel, &TimeModel::worldChanged,
+            m_lifeView,  &LifeView::renderNewWorld);
 
-    connect(m_timeModel, SIGNAL(timeChangeEvent(const TimeModel::TimeFlows&, const TimeModel::Bounds&)),
-            m_timeView, SLOT(on_changeTime(const TimeModel::TimeFlows&, const TimeModel::Bounds&)) );
+    connect(m_timeModel, &TimeModel::timeChanged,
+            m_timeView,  &TimeView::renderNewFlow);
 
-    connect(m_timeModel, SIGNAL(updateReadingsEvent(const Readings&)),
-            this, SLOT(on_updateReadings(const Readings&)) );
+    connect(m_timeModel, &TimeModel::readingsUpdated,
+            this,        &MainWindow::on_updateReadings);
 
-    connect(m_timeModel, SIGNAL(loopEndEvent()),
-            this, SLOT(on_loopEnd()) );
+    connect(m_timeModel, &TimeModel::loopFinished,
+            this,        &MainWindow::on_loopEnd);
 
-    connect(m_lifeView,  SIGNAL(chooseObjectEvent(int, int)),
-            m_timeModel, SLOT(on_chooseObject(int, int)) );
+    connect(m_lifeView,  &LifeView::objectChosen,
+            m_timeModel, &TimeModel::on_chooseObject);
 
-    connect(ui->comboFlow, SIGNAL(currentIndexChanged(int)),
-            m_timeModel, SLOT(on_switchFlow(int)) );
+    connect(ui->comboFlow, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            m_timeModel,   &TimeModel::on_switchFlow);
 
     // run
     start();
@@ -89,7 +89,7 @@ void MainWindow::start()
                         Settings::instance().worldCols,
                         Settings::instance().worldRows *
                         Settings::instance().worldCols *
-                        (float)Settings::instance().initFilling/100.f);
+                        (double)Settings::instance().initFilling/100.f);
 
     if (m_timer->isActive()) m_timer->stop();
     m_timer->start(1.0 / Settings::instance().desiredFPS * 1000);
@@ -192,29 +192,29 @@ void MainWindow::on_updateReadings(const Readings& readings)
 
 void MainWindow::on_loopEnd()
 {
-    // only one travel in the past!
+    // only one travel in past!
     m_tmBlocked = true;
-    on_actionPause_triggered();
+    pauseSimulation();
 }
 
 
-void MainWindow::on_actionSettings_triggered()
+void MainWindow::showSettingsDialog()
 {
     bool wasPause = m_pause;
-    if (!m_pause) on_actionPause_triggered();
+    if (!m_pause) pauseSimulation();
     SettingsUI dlg;
     dlg.exec();
-    if (!wasPause) on_actionPlay_triggered();
+    if (!wasPause) playSimulation();
 }
 
 
-void MainWindow::on_actionRestart_triggered()
+void MainWindow::restartSimulation()
 {
     start();
 }
 
 
-void MainWindow::on_actionPlay_triggered()
+void MainWindow::playSimulation()
 {
     m_pause = false;
     ui->actionPlay->setEnabled(false);
@@ -222,7 +222,7 @@ void MainWindow::on_actionPlay_triggered()
 }
 
 
-void MainWindow::on_actionPause_triggered()
+void MainWindow::pauseSimulation()
 {
     m_pause = true;
     ui->actionPause->setEnabled(false);
@@ -230,13 +230,13 @@ void MainWindow::on_actionPause_triggered()
 }
 
 
-void MainWindow::on_actionInfo_triggered()
+void MainWindow::showInfoDialog()
 {
     bool wasPause = m_pause;
-    if (!m_pause) on_actionPause_triggered();
+    if (!m_pause) pauseSimulation();
     InfoUI dlg;
     dlg.exec();
-    if (!wasPause) on_actionPlay_triggered();
+    if (!wasPause) playSimulation();
 }
 
 

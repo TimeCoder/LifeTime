@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Help and About</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="infoText">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -45,7 +45,7 @@ p, li { white-space: pre-wrap; }
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="closeButton">
    <property name="geometry">
     <rect>
      <x>200</x>

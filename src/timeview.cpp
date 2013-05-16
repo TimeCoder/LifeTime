@@ -19,7 +19,7 @@ TimeView::TimeView(QWidget *parent) :
 }
 
 
-void TimeView::on_changeTime(const TimeModel::TimeFlows& flows, const TimeModel::Bounds& bounds)
+void TimeView::renderNewFlow(const TimeModel::TimeFlows& flows, const TimeModel::Bounds& bounds)
 {
     m_flows  = &flows;
     m_bounds = &bounds;
@@ -56,39 +56,39 @@ void TimeView::paintGL()
 
     if (!m_flows || !m_bounds) return;
 
-    float midY = height() * 0.8;
-    float x_scale = width() / (m_bounds->tMax - m_bounds->tMin);
-    float yRange = (m_bounds->bMax - m_bounds->bMin);
-    float y_scale = 0.45 * height() / (yRange > 0 ? yRange : 1);
+    double midY = height() * 0.8;
+    double x_scale = width() / (m_bounds->tMax - m_bounds->tMin);
+    double yRange = (m_bounds->bMax - m_bounds->bMin);
+    double y_scale = 0.45 * height() / (yRange > 0 ? yRange : 1);
 
     int flowNum = 0;
     bool inGate = false;
 
     foreach (const TimeFlow* flow, (*m_flows))
     {
-        float x, y;
+        double x, y;
         glBegin(GL_LINE_STRIP);
         foreach (const TimeFlow::Point5D& point, flow->branch())
         {
             if (point.k == TimeFlow::Point5D::leapIn)
             {
                 inGate = true;
-                x = float(point.t - m_bounds->tMin) * x_scale;
-                y = float((point.b - yRange*0.3) * -y_scale + midY);
+                x = double(point.t - m_bounds->tMin) * x_scale;
+                y = double((point.b - yRange*0.3) * -y_scale + midY);
             }
             else
             if (point.k == TimeFlow::Point5D::leapOut)
             {
-                x = float(point.t - m_bounds->tMin) * x_scale;
-                y = float((point.b - yRange*0.3) * -y_scale + midY);
+                x = double(point.t - m_bounds->tMin) * x_scale;
+                y = double((point.b - yRange*0.3) * -y_scale + midY);
                 glVertex2f(x, y);
-                y = float((point.b - yRange*0.0) * -y_scale + midY);
+                y = double((point.b - yRange*0.0) * -y_scale + midY);
             }
             else
             {
                 inGate = false;
-                x = float(point.t - m_bounds->tMin) * x_scale;
-                y = float(point.b * -y_scale + midY);
+                x = double(point.t - m_bounds->tMin) * x_scale;
+                y = double(point.b * -y_scale + midY);
             }
 
             const QColor& color = inGate ? Settings::instance().colorGate :

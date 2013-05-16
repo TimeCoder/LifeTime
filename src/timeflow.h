@@ -6,26 +6,25 @@
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef FLOW_H
 #define FLOW_H
+
 #include <QVector>
 #include "world.h"
 
 class LifeModel;
 
-
 class TimeFlow
 {
 public:
-
     // Point of multiversum, t - time axis, b - axis of alternate realities
     struct Point5D
     {
         enum  Kind { track, normal, leapIn, leapOut };
 
         int    t;
-        float  b;
+        double  b;
         Kind k;
         Point5D(){}
-        Point5D(int time, float branch, Kind kind = normal)
+        Point5D(int time, double branch, Kind kind = normal)
             : t(time), b(branch), k(kind)
         {
         }
@@ -36,7 +35,7 @@ public:
     TimeFlow(int rows, int cols, int count);
     TimeFlow(const TimeFlow* parent, World::TCells* object, int birthday);
     TimeFlow(const TimeFlow&);
-   ~TimeFlow();
+    ~TimeFlow();
 
     TimeFlow& operator =(const TimeFlow&);
 
@@ -51,10 +50,10 @@ public:
     const LifeModel* life() const;
 
     int tMax() const;
-    float bMax() const;
+    double bMax() const;
 
-    float b(int t) const;
-    float filling(int t) const;
+    double b(int t) const;
+    double filling(int t) const;
 
 private:
     // Parent flow
@@ -65,18 +64,18 @@ private:
     QVector<World*> m_past;
 
     // FIXME: parallel arrays is bad
-    QVector<float>  m_fillings;
+    QVector<double>  m_fillings;
 
     //
     LifeModel*      m_life;
 
     //
     TBranch         m_branch;
-    float           m_bMax;
+    double           m_bMax;
 
 private:
     // The quantitative difference between the worlds
-    static float worldDif(const World& world1, const World& world2);
+    static double worldDif(const World& world1, const World& world2);
 };
 
 #endif // FLOW_H

@@ -45,7 +45,7 @@ void TimeModel::next()
     m_curTime++;
 
     int   tMax = 0;
-    float bSum = 0;
+    double bSum = 0;
 
     // Calc time flows
     for (int i=0; i<m_flows.size(); i++)
@@ -89,13 +89,13 @@ void TimeModel::next()
 
             m_readings.state = Readings::afterLoop;
 
-            emit loopEndEvent();
+            emit loopFinished();
         }
     }
 
-    emit worldChangeEvent(m_flows[m_curFlow]->world(m_curTime), m_object, m_readings.state);
-    emit timeChangeEvent(m_flows, m_bounds);
-    emit updateReadingsEvent(m_readings);
+    emit worldChanged(m_flows[m_curFlow]->world(m_curTime), m_object, m_readings.state);
+    emit timeChanged(m_flows, m_bounds);
+    emit readingsUpdated(m_readings);
 }
 
 
@@ -104,23 +104,23 @@ void TimeModel::on_chooseObject(int row, int col)
     m_flows[m_curFlow]->world(m_curTime).selectObject(row, col, m_object);
 
     m_readings.objectSizeAbs = m_object.size();
-    m_readings.objectSizeRel = float(m_object.size()) / (m_readings.worldWidth * m_readings.worldHeight) * 100.f;
+    m_readings.objectSizeRel = double(m_object.size()) / (m_readings.worldWidth * m_readings.worldHeight) * 100.f;
 
-    emit updateReadingsEvent(m_readings);
-    emit worldChangeEvent(m_flows[m_curFlow]->world(m_curTime), m_object, m_readings.state);
+    emit readingsUpdated(m_readings);
+    emit worldChanged(m_flows[m_curFlow]->world(m_curTime), m_object, m_readings.state);
 }
 
 
 void TimeModel::showPast(int destTime)
 {
     m_readings.state = Readings::showPast;
-    emit worldChangeEvent(m_flows[m_curFlow]->world(destTime), m_object, m_readings.state);
+    emit worldChanged(m_flows[m_curFlow]->world(destTime), m_object, m_readings.state);
 
     m_readings.worldFill = m_flows[m_curFlow]->filling(destTime);
     m_readings.leapFrom  = m_curTime;
     m_readings.leapTo    = destTime;
     m_readings.leapDistance = m_curTime - destTime;
-    emit updateReadingsEvent(m_readings);
+    emit readingsUpdated(m_readings);
 }
 
 
@@ -129,7 +129,7 @@ void TimeModel::gotoPast(int destTime)
     m_readings.state = Readings::inLoop;
     m_readings.leapDifMax  = 0.f;
     m_readings.leapDifRoot = 0.f;
-    emit updateReadingsEvent(m_readings);
+    emit readingsUpdated(m_readings);
 
     m_flows[m_curFlow]->addLeap(m_curTime, destTime);
     m_flows.push_back(new TimeFlow(m_flows[m_curFlow], &m_object, destTime));
@@ -138,14 +138,14 @@ void TimeModel::gotoPast(int destTime)
 }
 
 
-float TimeModel::objectSize() const
+double TimeModel::objectSize() const
 {
     const World& world = m_flows[m_curFlow]->world(m_curTime);
-    return (float)m_object.size() / (world.rows() * world.cols());
+    return (double)m_object.size() / (world.rows() * world.cols());
 }
 
 void TimeModel::on_switchFlow(int flow)
 {
     m_curFlow = flow;
-    emit worldChangeEvent(m_flows[m_curFlow]->world(m_curTime), m_object, m_readings.state);
+    emit worldChanged(m_flows[m_curFlow]->world(m_curTime), m_object, m_readings.state);
 }

@@ -1,9 +1,13 @@
-///////////////////////////////////////////////////////////////////////////////
-//  MainWindow - main app window
 //
-//  Project: "LifeTime"
-//  Autor: Igor Zimaev  (i.zimaev@timeacademy.ru)
-///////////////////////////////////////////////////////////////////////////////
+// This file is part of the LifeTime project
+//
+// This program is free software licensed under the GNU LGPL. You can
+// find a copy of this license in LICENSE in the top directory of
+// the source code.
+//
+// Copyright 2013      Igor Zimaev   <i.zimaev@timeacademy.ru>
+//
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include <QMainWindow>
@@ -31,7 +35,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     
-private slots:
+public:
     void on_render();
     void on_sliderTime_sliderPressed();
     void on_sliderTime_valueChanged(int value);
@@ -41,13 +45,20 @@ private slots:
     void on_updateReadings(const Readings&);
     void on_loopEnd();
 
-    void on_actionSettings_triggered();
-    void on_actionRestart_triggered();
-    void on_actionPlay_triggered();
-    void on_actionPause_triggered();
+    void showSettingsDialog();
+    void showInfoDialog();
+    void restartSimulation();
+    void playSimulation();
+    void pauseSimulation();
 
+protected:
+    void resizeEvent(QResizeEvent* e);
 
-    void on_actionInfo_triggered();
+private:
+    void start();
+    bool pause() const;
+    void setPause(const bool pause);
+    void enableControls();
 
 private:
     Ui::MainWindow* ui;
@@ -63,14 +74,6 @@ private:
 
     ReadingsUI m_readingsUI;
 
-private:
-    void start();
-    void resizeEvent(QResizeEvent* e);
-
-    bool pause() const;
-    void setPause(const bool pause);
-
-    void enableControls();
 };
 
 #endif // MAINWINDOW_H

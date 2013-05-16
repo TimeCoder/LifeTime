@@ -1,8 +1,12 @@
-#-------------------------------------------------
 #
-# Project created by QtCreator 2013-01-08T00:14:36
+# This file is part of the Supernova IDE
 #
-#-------------------------------------------------
+# This program is free software licensed under the GNU LGPL. You can
+# find a copy of this license in LICENSE in the top directory of
+# the source code.
+#
+# Copyright 2013      Igor Zimaev   <i.zimaev@timeacademy.ru>
+#
 
 QT       += core widgets opengl
 

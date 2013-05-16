@@ -83,7 +83,7 @@ void TimeFlow::next()
 
     // Second, calc his 5D coords
     int t = m_past.size()-1;
-    float b = m_parent ?
+    double b = m_parent ?
         (worldDif(world(t), m_parent->world(t))) : 0;
 
     // Dif between flow and its parent, and b-coord parent
@@ -96,14 +96,14 @@ void TimeFlow::next()
 }
 
 
-float TimeFlow::b(int t) const
+double TimeFlow::b(int t) const
 {
     if (t > m_birthday) return m_branch[t - m_birthday].b;
     return m_parent->b(t);
 }
 
 
-float TimeFlow::filling(int t) const
+double TimeFlow::filling(int t) const
 {
     Q_ASSERT(t >=0 && t < m_fillings.size());
     return m_fillings[t];
@@ -135,7 +135,7 @@ int TimeFlow::tMax() const
 }
 
 
-float TimeFlow::bMax() const
+double TimeFlow::bMax() const
 {
     return m_bMax;
 }
@@ -148,12 +148,12 @@ void TimeFlow::addLeap(int from, int to)
 }
 
 
-float TimeFlow::worldDif(const World& world1, const World& world2)
+double TimeFlow::worldDif(const World& world1, const World& world2)
 {
     Q_ASSERT(world1.rows() == world2.rows());
     Q_ASSERT(world1.cols() == world2.cols());
 
-    float dif = 0;
+    double dif = 0;
 
     for (int row=0; row<world1.rows(); ++row)
     {

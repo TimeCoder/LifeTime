@@ -46,7 +46,7 @@ void LifeView::resizeGL(int nWidth, int nHeight)
 }
 
 
-void LifeView::on_changeWorld(const World& world, const World::TCells& object, Readings::eStates state)
+void LifeView::renderNewWorld(const World& world, const World::TCells& object, Readings::eStates state)
 {
     m_world  = &world;
     m_object = &object;
@@ -61,15 +61,15 @@ void LifeView::paintGL()
 
     if (!m_world) return;
 
-    float cellW = (float)width()  / m_world->cols();
-    float cellH = (float)height() / m_world->rows();
+    double cellW = (double)width()  / m_world->cols();
+    double cellH = (double)height() / m_world->rows();
 
     //
     const QColor& color = Settings::instance().colorWorld;
     glColor4f(color.redF(), color.greenF(), color.blueF(), color.alphaF());
 
-    float y;
-    float x;
+    double y;
+    double x;
     for (int row=0; row < m_world->rows(); ++row)
     {
         for (int col=0; col < m_world->cols(); ++col)
@@ -78,8 +78,8 @@ void LifeView::paintGL()
             {
                 glBegin(GL_POLYGON);
 
-                y = cellH*((float)(m_world->rows()-row));
-                x = cellW*((float)(col+1));
+                y = cellH*((double)(m_world->rows()-row));
+                x = cellW*((double)(col+1));
 
                 glVertex2f(x, y);
                 glVertex2f(x, y-cellH);
@@ -103,8 +103,8 @@ void LifeView::paintGL()
         {
             glBegin(GL_POLYGON);
 
-            y = cellH*((float)(m_world->rows()-cell.first));
-            x = cellW*((float)(cell.second+1));
+            y = cellH*((double)(m_world->rows()-cell.first));
+            x = cellW*((double)(cell.second+1));
 
             glVertex2f(x, y);
             glVertex2f(x, y-cellH);
@@ -124,7 +124,7 @@ void LifeView::mousePressEvent(QMouseEvent* event)
     int row = int( event->pos().y() / height() * m_world->rows() );
     int col = int( event->pos().x() / width()  * m_world->cols() );
 
-    emit chooseObjectEvent(row, col);
+    emit objectChosen(row, col);
 }
 
 

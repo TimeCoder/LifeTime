@@ -14,15 +14,14 @@ class TimeView : public QGLWidget
     Q_OBJECT
 public:
     explicit TimeView(QWidget* parent);
+    void renderNewFlow(const TimeModel::TimeFlows& flows, const TimeModel::Bounds& bounds);
 
-public slots:
-    void on_changeTime(const TimeModel::TimeFlows& flows, const TimeModel::Bounds& bounds);
-
-private:
+protected:
     void initializeGL();
     void resizeGL(int nWidth, int nHeight);
     void paintGL();
 
+private:
     const TimeModel::TimeFlows* m_flows;
     const TimeModel::Bounds*    m_bounds;
 };
