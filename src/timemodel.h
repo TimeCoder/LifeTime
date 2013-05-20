@@ -48,8 +48,8 @@ signals:
     void readingsUpdated(const Readings& readings);
 
 public slots:
-    void on_chooseObject(int col, int row);
-    void on_switchFlow(int flow);
+    void chooseObject(int col, int row);
+    void switchFlow(int flow);
 
 private:
     TimeFlows     m_flows;

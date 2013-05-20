@@ -56,11 +56,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(m_timeModel, &TimeModel::loopFinished,
             this,        &MainWindow::on_loopEnd);
 
-    connect(m_lifeView,  &LifeView::objectChosen,
-            m_timeModel, &TimeModel::on_chooseObject);
+    connect(m_lifeView,  &LifeView::cellActivated,
+            m_timeModel, &TimeModel::chooseObject);
 
     connect(ui->comboFlow, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            m_timeModel,   &TimeModel::on_switchFlow);
+            m_timeModel,   &TimeModel::switchFlow);
 
     // run
     start();

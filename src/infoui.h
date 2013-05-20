@@ -28,7 +28,7 @@ public:
   explicit InfoUI(QWidget *parent = 0);
   ~InfoUI();
   
-private:
+protected:
     void closeWindow();
 
 private:

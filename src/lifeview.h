@@ -31,7 +31,7 @@ public:
     void renderNewWorld(const World& world, const World::TCells& object, Readings::eStates state);
 
 signals:
-    void objectChosen(int col, int row);
+    void cellActivated(int col, int row);
 
 protected:
     void initializeGL();

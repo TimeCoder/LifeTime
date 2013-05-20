@@ -99,7 +99,7 @@ void TimeModel::next()
 }
 
 
-void TimeModel::on_chooseObject(int row, int col)
+void TimeModel::chooseObject(int row, int col)
 {
     m_flows[m_curFlow]->world(m_curTime).selectObject(row, col, m_object);
 
@@ -107,6 +107,13 @@ void TimeModel::on_chooseObject(int row, int col)
     m_readings.objectSizeRel = double(m_object.size()) / (m_readings.worldWidth * m_readings.worldHeight) * 100.f;
 
     emit readingsUpdated(m_readings);
+    emit worldChanged(m_flows[m_curFlow]->world(m_curTime), m_object, m_readings.state);
+}
+
+
+void TimeModel::switchFlow(int flow)
+{
+    m_curFlow = flow;
     emit worldChanged(m_flows[m_curFlow]->world(m_curTime), m_object, m_readings.state);
 }
 
@@ -144,8 +151,3 @@ double TimeModel::objectSize() const
     return (double)m_object.size() / (world.rows() * world.cols());
 }
 
-void TimeModel::on_switchFlow(int flow)
-{
-    m_curFlow = flow;
-    emit worldChanged(m_flows[m_curFlow]->world(m_curTime), m_object, m_readings.state);
-}

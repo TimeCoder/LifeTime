@@ -7,7 +7,7 @@
 #ifndef READINGSUI_H
 #define READINGSUI_H
 
-class Readings;
+struct Readings;
 class QTreeWidget;
 class QTreeWidgetItem;
 

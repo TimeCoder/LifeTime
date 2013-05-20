@@ -22,7 +22,7 @@ class TimeModel;
 class LifeView;
 class TimeView;
 class QTreeWidgetItem;
-class Readings;
+struct Readings;
 class QTimer;
 
 //

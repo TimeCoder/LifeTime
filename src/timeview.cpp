@@ -8,6 +8,10 @@
 #include <GL/glut.h>
 #endif
 
+#ifdef Q_OS_WIN
+#include <GL/glu.h>
+#endif
+
 #ifdef Q_OS_MAC
 #include <OpenGL/glu.h>
 #endif

@@ -8,6 +8,10 @@
 #include <GL/glut.h>
 #endif
 
+#ifdef Q_OS_WIN
+#include <GL/glu.h>
+#endif
+
 #ifdef Q_OS_MAC
 #include <OpenGL/glu.h>
 #endif
@@ -124,7 +128,7 @@ void LifeView::mousePressEvent(QMouseEvent* event)
     int row = int( event->pos().y() / height() * m_world->rows() );
     int col = int( event->pos().x() / width()  * m_world->cols() );
 
-    emit objectChosen(row, col);
+    emit cellActivated(row, col);
 }
 
 

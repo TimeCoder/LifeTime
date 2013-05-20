@@ -64,14 +64,14 @@ private:
     QVector<World*> m_past;
 
     // FIXME: parallel arrays is bad
-    QVector<double>  m_fillings;
+    QVector<double> m_fillings;
 
     //
     LifeModel*      m_life;
 
     //
     TBranch         m_branch;
-    double           m_bMax;
+    double          m_bMax;
 
 private:
     // The quantitative difference between the worlds
