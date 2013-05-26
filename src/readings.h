@@ -21,7 +21,8 @@ struct Readings
     {
         showPast,
         inLoop,
-        afterLoop
+        afterLoop,
+        statesCount
     };
 
     eStates state;

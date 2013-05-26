@@ -19,6 +19,8 @@
 #include "readings.h"
 
 class QMouseEvent;
+class QPaintEvent;
+
 
 class LifeView : public QGLWidget
 {
@@ -28,15 +30,14 @@ public:
 
     // Freeze object choose
     void fixObject(bool fix);
-    void renderNewWorld(const World& world, const World::TCells& object, Readings::eStates state);
+    void renderWorld(const World& world, const World::TCells& object, Readings::eStates state);
 
 signals:
     void cellActivated(int col, int row);
 
 protected:
-    void initializeGL();
-    void resizeGL(int nWidth, int nHeight);
-    void paintGL();
+    void paintEvent(QPaintEvent *event);
+    void doPaint(QPainter& painter);
     void mousePressEvent(QMouseEvent* event);
 
 private:
@@ -44,6 +45,11 @@ private:
     const World::TCells  *m_object;
     bool                  m_fixObject;
     Readings::eStates     m_state;
+
+    QBrush  m_backBrush;
+    QBrush  m_cellsBrush;
+    QBrush  m_objectBrush[Readings::statesCount];
+
 };
 
 #endif // LIFEVIEW_H

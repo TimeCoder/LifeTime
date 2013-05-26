@@ -35,26 +35,39 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->comboFlow->addItem("r1 - branch");
     ui->comboFlow->setCurrentIndex(0);
 
+    connect(ui->btnOn,   &QAbstractButton::clicked, this, &MainWindow::timeMachineOn);
+    connect(ui->btnLeap, &QAbstractButton::clicked, this, &MainWindow::timeLeap);
+
+    connect(ui->sliderTime, &QSlider::sliderPressed,  this, &MainWindow::enableControls);
+    connect(ui->sliderTime, &QSlider::valueChanged,   this, &MainWindow::showPast);
+    connect(ui->sliderTime, &QSlider::sliderReleased, this, &MainWindow::timeMachineReady);
+
+    connect(ui->actionSettings, &QAction::triggered, this, &MainWindow::showSettingsDialog);
+    connect(ui->actionInfo,     &QAction::triggered, this, &MainWindow::showInfoDialog);
+    connect(ui->actionRestart,  &QAction::triggered, this, &MainWindow::restartSimulation);
+    connect(ui->actionPlay,     &QAction::triggered, this, &MainWindow::playSimulation);
+    connect(ui->actionPause,    &QAction::triggered, this, &MainWindow::pauseSimulation);
+
     //
     // Setup timer
     //
     m_timer = new QTimer(this);
-    connect(m_timer, &QTimer::timeout, this, &MainWindow::on_render);
+    connect(m_timer, &QTimer::timeout, this, &MainWindow::renderNext);
 
     //
     // bind models and views
     //
     connect(m_timeModel, &TimeModel::worldChanged,
-            m_lifeView,  &LifeView::renderNewWorld);
+            m_lifeView,  &LifeView::renderWorld);
 
     connect(m_timeModel, &TimeModel::timeChanged,
-            m_timeView,  &TimeView::renderNewFlow);
+            m_timeView,  &TimeView::renderFlows);
 
     connect(m_timeModel, &TimeModel::readingsUpdated,
-            this,        &MainWindow::on_updateReadings);
+            this,        &MainWindow::updateReadings);
 
     connect(m_timeModel, &TimeModel::loopFinished,
-            this,        &MainWindow::on_loopEnd);
+            this,        &MainWindow::timeMachineLock);
 
     connect(m_lifeView,  &LifeView::cellActivated,
             m_timeModel, &TimeModel::chooseObject);
@@ -116,7 +129,7 @@ void MainWindow::setPause(const bool pause)
 }
 
 
-void MainWindow::on_render()
+void MainWindow::renderNext()
 {
     if (!m_pause && !m_tmOn)
     {
@@ -144,7 +157,7 @@ void MainWindow::enableControls()
 }
 
 
-void MainWindow::on_btnOn_clicked()
+void MainWindow::timeMachineOn()
 {
     ui->sliderTime->setMaximum(m_timeModel->curTime());
     ui->sliderTime->setValue(m_timeModel->curTime());
@@ -154,27 +167,23 @@ void MainWindow::on_btnOn_clicked()
 }
 
 
-void MainWindow::on_sliderTime_sliderPressed()
+
+
+void MainWindow::showPast(int time)
 {
-    enableControls();
+    m_timeModel->showPast(time);
+    ui->lcd1->display(time);
 }
 
 
-void MainWindow::on_sliderTime_valueChanged(int value)
-{
-    m_timeModel->showPast(value);
-    ui->lcd1->display(value);    
-}
-
-
-void MainWindow::on_sliderTime_sliderReleased()
+void MainWindow::timeMachineReady()
 {
     m_choosedTime = true;
     enableControls();
 }
 
 
-void MainWindow::on_btnLeap_clicked()
+void MainWindow::timeLeap()
 {
     m_timeModel->gotoPast(ui->sliderTime->value());
     m_tmOn = false;
@@ -182,7 +191,7 @@ void MainWindow::on_btnLeap_clicked()
 }
 
 
-void MainWindow::on_updateReadings(const Readings& readings)
+void MainWindow::updateReadings(const Readings& readings)
 {
     m_choosedObject = (readings.objectSizeAbs > 0);
     m_readingsUI.update(readings);
@@ -190,7 +199,7 @@ void MainWindow::on_updateReadings(const Readings& readings)
 }
 
 
-void MainWindow::on_loopEnd()
+void MainWindow::timeMachineLock()
 {
     // only one travel in past!
     m_tmBlocked = true;

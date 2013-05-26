@@ -138,7 +138,7 @@ void TimeModel::gotoPast(int destTime)
     m_readings.leapDifRoot = 0.f;
     emit readingsUpdated(m_readings);
 
-    m_flows[m_curFlow]->addLeap(m_curTime, destTime);
+    m_flows[m_curFlow]->setLeap(m_curTime, destTime);
     m_flows.push_back(new TimeFlow(m_flows[m_curFlow], &m_object, destTime));
     m_curFlow++;
     m_curTime = destTime-1;

@@ -35,21 +35,24 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     
-public:
-    void on_render();
-    void on_sliderTime_sliderPressed();
-    void on_sliderTime_valueChanged(int value);
-    void on_sliderTime_sliderReleased();
-    void on_btnLeap_clicked();
-    void on_btnOn_clicked();
-    void on_updateReadings(const Readings&);
-    void on_loopEnd();
+protected slots:
+    void renderNext();
+    void timeMachineOn();
+    void timeMachineReady();
+    void timeMachineLock();
+
+    void showPast(int time);
+    void timeLeap();
+
+    void updateReadings(const Readings&);
 
     void showSettingsDialog();
     void showInfoDialog();
     void restartSimulation();
     void playSimulation();
     void pauseSimulation();
+
+    void enableControls();
 
 protected:
     void resizeEvent(QResizeEvent* e);
@@ -58,7 +61,7 @@ private:
     void start();
     bool pause() const;
     void setPause(const bool pause);
-    void enableControls();
+
 
 private:
     Ui::MainWindow* ui;

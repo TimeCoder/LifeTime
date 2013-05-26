@@ -37,8 +37,8 @@ public:
     double crossObject(const World::TCells&) const;
 
 private:
-    World* m_worldCur;
-    World* m_worldPrev;
+    World*  m_worldCur;
+    World*  m_worldPrev;
     double  m_filling;
 };
 

@@ -1,20 +1,10 @@
+#include <QPainter>
+#include <QPaintEvent>
 #include <QMouseEvent>
 #include "lifeview.h"
 #include "world.h"
 #include "settings.h"
 
-#ifdef Q_OS_LINUX
-#include <GL/glu.h>
-#include <GL/glut.h>
-#endif
-
-#ifdef Q_OS_WIN
-#include <GL/glu.h>
-#endif
-
-#ifdef Q_OS_MAC
-#include <OpenGL/glu.h>
-#endif
 
 LifeView::LifeView(QWidget *parent) :
     QGLWidget(QGLFormat(QGL::SampleBuffers), parent),
@@ -24,53 +14,44 @@ LifeView::LifeView(QWidget *parent) :
     m_state(Readings::showPast)
 {
 
+    m_backBrush  = QBrush(QColor(0, 0, 0));
+    m_cellsBrush = QBrush(Settings::instance().colorWorld);
+    m_objectBrush[Readings::showPast]  = QBrush(Settings::instance().colorObjectChoose);
+    m_objectBrush[Readings::inLoop]    = QBrush(Settings::instance().colorObjectGhost);
+    m_objectBrush[Readings::afterLoop] = QBrush(Settings::instance().colorObjectFinal);
 }
 
 
-void LifeView::initializeGL()
-{
-    glDisable(GL_TEXTURE_2D);
-    glDisable(GL_DEPTH_TEST);
-    glDisable(GL_COLOR_MATERIAL);
-    glEnable(GL_BLEND);
-    glEnable(GL_POLYGON_SMOOTH);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glClearColor(0, 0, 0, 0);
-}
-
-
-void LifeView::resizeGL(int nWidth, int nHeight)
-{
-    glViewport(0, 0, nWidth, nHeight);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluOrtho2D(0, nWidth, 0, nHeight); // set origin to bottom left corner
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-}
-
-
-void LifeView::renderNewWorld(const World& world, const World::TCells& object, Readings::eStates state)
+void LifeView::renderWorld(const World& world, const World::TCells& object, Readings::eStates state)
 {
     m_world  = &world;
     m_object = &object;
     m_state  = state;
-    updateGL();
+    repaint();
 }
 
 
-void LifeView::paintGL()
+void LifeView::paintEvent(QPaintEvent*)
 {
-    glClear(GL_COLOR_BUFFER_BIT);
+    QPainter painter;
+    painter.begin(this);
+    painter.setRenderHint(QPainter::Antialiasing);
+    doPaint(painter);
+    painter.end();
+}
+
+
+void LifeView::doPaint(QPainter& painter)
+{
+    painter.fillRect(0, 0, width(), height(), m_backBrush);
 
     if (!m_world) return;
 
-    double cellW = (double)width()  / m_world->cols();
-    double cellH = (double)height() / m_world->rows();
+    double cellW = double(width())  / m_world->cols();
+    double cellH = double(height()) / m_world->rows();
 
     //
-    const QColor& color = Settings::instance().colorWorld;
-    glColor4f(color.redF(), color.greenF(), color.blueF(), color.alphaF());
+    QVector<QRectF> cellsRects;
 
     double y;
     double x;
@@ -80,56 +61,47 @@ void LifeView::paintGL()
         {
             if (m_world->cell(row, col))
             {
-                glBegin(GL_POLYGON);
+                y = cellH*((double)row);
+                x = cellW*((double)(col));
 
-                y = cellH*((double)(m_world->rows()-row));
-                x = cellW*((double)(col+1));
-
-                glVertex2f(x, y);
-                glVertex2f(x, y-cellH);
-                glVertex2f(x-cellW, y-cellH);
-                glVertex2f(x-cellW, y);
-
-                glEnd();
+                cellsRects << QRectF(x, y, cellW, cellH);
             }
         }
     }
 
     //
+    QVector<QRectF> objRects;
+
     if (m_object)
     {
-        const QColor& color = (m_state == Readings::showPast ? Settings::instance().colorObjectChoose :
-          (m_state == Readings::inLoop ? Settings::instance().colorObjectGhost : Settings::instance().colorObjectFinal));
-
-        glColor4f(color.redF(), color.greenF(), color.blueF(), color.alphaF());
-
         foreach(const World::TCell& cell, (*m_object))
         {
-            glBegin(GL_POLYGON);
+            y = cellH*((double)cell.first);
+            x = cellW*((double)(cell.second));
 
-            y = cellH*((double)(m_world->rows()-cell.first));
-            x = cellW*((double)(cell.second+1));
-
-            glVertex2f(x, y);
-            glVertex2f(x, y-cellH);
-            glVertex2f(x-cellW, y-cellH);
-            glVertex2f(x-cellW, y);
-
-            glEnd();
+            objRects << QRectF(x, y, cellW, cellH);
         }
     }
+
+    painter.setBrush(m_cellsBrush);
+    painter.drawRects(cellsRects);
+
+    painter.setBrush(m_objectBrush[m_state]);
+    painter.drawRects(objRects);
 }
+
 
 
 void LifeView::mousePressEvent(QMouseEvent* event)
 {
     if (m_fixObject) return;
 
-    int row = int( event->pos().y() / height() * m_world->rows() );
-    int col = int( event->pos().x() / width()  * m_world->cols() );
+    int row = int( (double)event->pos().y() / height() * m_world->rows() );
+    int col = int( (double)event->pos().x() / width()  * m_world->cols() );
 
     emit cellActivated(row, col);
 }
+
 
 
 void LifeView::fixObject(bool fix)

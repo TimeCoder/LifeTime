@@ -141,10 +141,17 @@ double TimeFlow::bMax() const
 }
 
 
-void TimeFlow::addLeap(int from, int to)
+void TimeFlow::setLeap(int from, int to)
 {
-    m_branch.push_back(Point5D(from, b(from), Point5D::leapIn));
-    m_branch.push_back(Point5D(to,   b(to), Point5D::leapOut));
+    m_leapInfo.was = true;
+    m_leapInfo.from = Point5D(from, b(from));
+    m_leapInfo.to = Point5D(to, b(to));
+}
+
+
+const TimeFlow::LeapInfo& TimeFlow::leap() const
+{
+    return m_leapInfo;
 }
 
 

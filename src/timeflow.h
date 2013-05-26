@@ -18,17 +18,23 @@ public:
     // Point of multiversum, t - time axis, b - axis of alternate realities
     struct Point5D
     {
-        enum  Kind { track, normal, leapIn, leapOut };
-
-        int    t;
+        int     t;
         double  b;
-        Kind k;
         Point5D(){}
-        Point5D(int time, double branch, Kind kind = normal)
-            : t(time), b(branch), k(kind)
+        Point5D(int time, double branch)
+            : t(time), b(branch)
         {
         }
     };
+
+    struct LeapInfo
+    {
+        bool    was;
+        Point5D from;
+        Point5D to;
+        LeapInfo() : was(false) {}
+    };
+
     typedef QVector<Point5D>  TBranch;
 
     TimeFlow();
@@ -43,7 +49,8 @@ public:
     void next();
 
     // Add tonnel in past
-    void addLeap(int from, int to);
+    void setLeap(int from, int to);
+    const LeapInfo& leap() const;
 
     const TBranch& branch() const;
     const World& world(int time) const;
@@ -72,6 +79,8 @@ private:
     //
     TBranch         m_branch;
     double          m_bMax;
+
+    LeapInfo        m_leapInfo;
 
 private:
     // The quantitative difference between the worlds

@@ -14,16 +14,19 @@ class TimeView : public QGLWidget
     Q_OBJECT
 public:
     explicit TimeView(QWidget* parent);
-    void renderNewFlow(const TimeModel::TimeFlows& flows, const TimeModel::Bounds& bounds);
+    void renderFlows(const TimeModel::TimeFlows& flows, const TimeModel::Bounds& bounds);
 
 protected:
-    void initializeGL();
-    void resizeGL(int nWidth, int nHeight);
-    void paintGL();
+    void paintEvent(QPaintEvent *event);
+    void doPaint(QPainter& painter);
 
 private:
     const TimeModel::TimeFlows* m_flows;
     const TimeModel::Bounds*    m_bounds;
+    QBrush                      m_backBrush;
+
+    enum { trunk, canal, branch, count };
+    QPen m_curvePens[count];
 };
 
 #endif // TIMEVIEW_H
