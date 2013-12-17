@@ -7,15 +7,10 @@ InfoUI::InfoUI(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->closeButton, &QPushButton::clicked,
-            this, &InfoUI::closeWindow);
+            this, &InfoUI::close);
 }
 
 InfoUI::~InfoUI()
 {
     delete ui;
-}
-
-void InfoUI::closeWindow()
-{
-    close();
 }

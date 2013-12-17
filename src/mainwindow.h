@@ -18,11 +18,12 @@ namespace Ui {
 class MainWindow;
 }
 
+struct Readings;
 class TimeModel;
 class LifeView;
 class TimeView;
+
 class QTreeWidgetItem;
-struct Readings;
 class QTimer;
 
 //

@@ -27,9 +27,6 @@ class InfoUI : public QDialog
 public:
   explicit InfoUI(QWidget *parent = 0);
   ~InfoUI();
-  
-protected:
-    void closeWindow();
 
 private:
   Ui::InfoUI *ui;
